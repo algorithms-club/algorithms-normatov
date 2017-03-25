@@ -8,6 +8,7 @@ describe('#coverByTile', function(){
 		let titlesAmount = algolib.coverByTile(5,3,2);
 		titlesAmount.should.be.eql(6);
 	});
+
 	
 
 	it('should count amount of titles to cover area (float)', function(){
