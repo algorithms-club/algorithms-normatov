@@ -19,6 +19,6 @@ describe('bubble-sort', function() {
         let sortedArr = algolib.bubbleSort([2, 3, 6, 1, 3, 4, 7, 5]);
 
         sortedArr.should.be.eql([1, 2, 3, 3, 4, 5, 6, 7]);
-    })
+    });
 
-})
+});
