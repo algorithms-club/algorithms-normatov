@@ -2,7 +2,7 @@
 
 const algolib = require('../index.js');
 
-describe.only('#watermelon', function(){
+describe('#watermelon', function(){
 
 	it('make decision if weight<4', function(){
 		let decision = algolib.watermelon.makeDecision(3);
