@@ -24,7 +24,6 @@ function isSucceessSayHello(phrase) {
         }
 
     }
-    console.log(result)
     if (!result.localeCompare('hello')) return 'YES';
     else return 'NO';
 
