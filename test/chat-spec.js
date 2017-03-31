@@ -2,7 +2,7 @@
 
 const algolib = require('../index.js');
 
-describe.only('#chat', function () {
+describe('#chat', function () {
 
     it('Did Vasya success say hello with phrase ahhellllloou ', function () {
         let IsSuccess = algolib.chat.isSucceessSayHello('ahhellllloou');
