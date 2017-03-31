@@ -2,7 +2,7 @@
 
 const algolib = require('../index.js');
 
-describe.only('#stonesInLine', function () {
+describe('#stonesInLine', function () {
 
     it('count quantity of stones for deleting if line size is 3 and  stones follow as RRG ', function () {
         let quantity = algolib.stones.getMinStonesToDell(3, 'RRG');
