@@ -36,10 +36,23 @@ class UnionFind {
         return this._elements[a] === this._elements[b];
     }
 
-    count(){
-
+    count() {
+        let count = 0;
+        for (let i = 0; i < this._elements.length; i++) {
+            if (!isNaN(this._elements[i])) {
+                count++;
+            }
+        }
+        return count;
     }
-    component(a){
+
+    component(a) {
+        let count = 0;
+        for (let i = 0; i < this._elements.length; i++) {
+
+            if (this._elements[i] === a) count++;
+        }
+        return count;
 
     }
 
