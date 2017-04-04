@@ -7,11 +7,6 @@ describe.only('#unionFind', function () {
         let uf = new algolib.UnionFind();
         uf.connect.should.be.instanceOf(Function);
         uf.isConnected.should.be.instanceOf(Function);
-
-        // uf.connect(3,6);
-        // uf.connect(2,4);
-        // uf.isConnected(2,6); //false
-        // uf.isConnected(4,2); //true
     })
 
     it('should #isConnected return false if not connected', function () {
@@ -27,13 +22,6 @@ describe.only('#unionFind', function () {
         isElementConnected.should.be.eql(true);
     })
 
-    it('should #isConnected return true if elements are connected', function () {
-        let uf = new algolib.UnionFind();
-        uf.connect(3, 6);
-        let isElementConnected = uf.isConnected(6, 3);
-        isElementConnected.should.be.eql(true);
-    })
-
     it('should #isConnected return true if 3 elements are connected', function () {
         let uf = new algolib.UnionFind();
         uf.connect(3, 6);
@@ -42,44 +30,59 @@ describe.only('#unionFind', function () {
         isElementConnected.should.be.eql(true);
     })
 
-    it('should #count return count of elements in list', function () {
+    it('should #count return number of components if we have 2 components', function () {
         let uf = new algolib.UnionFind();
         uf.connect(3, 6);
-        uf.connect(3, 10);
-        let count = uf.count();
-        count.should.be.eql(3);
+        uf.connect(8, 10);
+        let numberOfComponents = uf.count();
+        numberOfComponents.should.be.eql(2);
     })
 
-    it('should #count return count of elements in list', function () {
+    it('should #count return number of components if we have 1 component', function () {
         let uf = new algolib.UnionFind();
         uf.connect(3, 6);
-        uf.connect(3, 10);
-        uf.connect(12, 10);
-        let count = uf.count();
-        count.should.be.eql(4);
+        let numberOfComponents = uf.count();
+        numberOfComponents.should.be.eql(1);
     })
 
-    it('should #count return count of elements in list', function () {
+    it('should #count return number of components if we have 3 components', function () {
         let uf = new algolib.UnionFind();
-        let count = uf.count();
-        count.should.be.eql(0);
+        uf.connect(3, 6);
+        uf.connect(7, 5);
+        uf.connect(8, 2);
+        let numberOfComponents = uf.count();
+        numberOfComponents.should.be.eql(3);
     })
 
-    it('should #component return count of elements in compomnent', function () {
+    it('should #component return component name ', function () {
         let uf = new algolib.UnionFind();
-        uf.connect(12, 10);
-        uf.connect(12, 11);
-        let count = uf.component(11);
-        count.should.be.eql(3);
+        uf.connect(1, 2);
+        let nameOfComponent = uf.component(1);
+        nameOfComponent.should.be.eql(2);
     })
 
-    it('should #component return count of elements in compomnent', function () {
+    it('should #component return undefined, because element not exist', function () {
         let uf = new algolib.UnionFind();
-        uf.connect(12, 10);
-        uf.connect(12, 11);
-        uf.connect(10, 15);
-        let count = uf.component(15);
-        count.should.be.eql(4);
+        uf.connect(1, 2);
+        let nameOfComponent = uf.component(5);
+        (nameOfComponent === undefined).should.be.true()
+    })
+
+    it('should #component return component name', function () {
+        let uf = new algolib.UnionFind();
+        uf.connect(1, 2);
+        uf.connect(2, 3);
+        uf.connect(1, 5);
+        let nameOfComponent = uf.component(1);
+        nameOfComponent.should.be.eql(5);
+    })
+
+    it('should #component return component name', function () {
+        let uf = new algolib.UnionFind();
+        uf.connect(1, 2);
+        uf.connect(2, 3);
+        let nameOfComponent = uf.component(2);
+        nameOfComponent.should.be.eql(3);
     })
 
 })
