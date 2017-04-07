@@ -1,4 +1,4 @@
-'use strick';
+'use strict';
 
 function getMinStonesToDell(numberOfStones, line) {
     let stones = line.split('');
