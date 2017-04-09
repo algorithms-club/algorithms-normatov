@@ -24,8 +24,6 @@ class UnionFind {
                 this._elements[i] = componentB;
             }
         }
-
-
     }
 
     isConnected(a, b) {
@@ -38,12 +36,15 @@ class UnionFind {
 
     count() {
         let count = 0;
-        let components = [];
+        // let components = [];
         for (let i = 0; i < this._elements.length; i++) {
             if (!isNaN(this._elements[i])) {
-                if (isUnique(components, this._elements[i])) {
-                    components[count] = this._elements[i];
-                    count++;
+                /* if (isUnique(components, this._elements[i])) {
+                 components[count] = this._elements[i];
+                 count++;
+                 }*/
+                if (indexOf(this._elements[i]) == this._elements[i]) {
+                   count++;
                 }
             }
         }
@@ -52,10 +53,7 @@ class UnionFind {
 
 
     component(a) {
-
-
         return this._elements[a];
-
     }
 
 }
