@@ -28,6 +28,5 @@ describe('#watermelon', function () {
         let decision = algolib.watermelon.makeDecision(43);
         decision.should.be.eql('NO');
     });
-
 });
 
