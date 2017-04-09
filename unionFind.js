@@ -36,15 +36,10 @@ class UnionFind {
 
     count() {
         let count = 0;
-        // let components = [];
         for (let i = 0; i < this._elements.length; i++) {
             if (!isNaN(this._elements[i])) {
-                /* if (isUnique(components, this._elements[i])) {
-                 components[count] = this._elements[i];
-                 count++;
-                 }*/
-                if (indexOf(this._elements[i]) == this._elements[i]) {
-                   count++;
+                if (i == this._elements[i]) {
+                    count++;
                 }
             }
         }
@@ -56,12 +51,6 @@ class UnionFind {
         return this._elements[a];
     }
 
-}
-function isUnique(array, element) {
-    for (var j = 0; j < array.length; j++) {
-        if (array[j] == element) return false;
-    }
-    return true;
 }
 
 module.exports = UnionFind;
