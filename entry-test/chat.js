@@ -10,20 +10,20 @@ function isSucceessSayHello(phrase) {
                     result += 'h';
                 break;
             case 'e':
-                if (!result === 'h')
+                if (result === 'h')
                     result += 'e';
                 break;
             case 'l':
-                if (!result === 'he' || result === 'hel')
+                if (result === 'he' || result === 'hel')
                     result += 'l';
                 break;
             case 'o':
-                if (!result === 'hell')
+                if (result === 'hell')
                     result += 'o';
                 break;
         }
     }
-    if (!result === 'hello') return 'YES';
+    if (result === 'hello') return 'YES';
     else return 'NO';
 }
 
