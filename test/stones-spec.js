@@ -35,7 +35,7 @@ describe('#stonesInLine', function () {
     });
 
     it('count quantity of stones for deleting if line size is 2 and  stones follow as BG ', function () {
-        let quantity = algolib.stones.getMinStonesToDell(2, 'BRBG');
+        let quantity = algolib.stones.getMinStonesToDell(2, 'BG');
         quantity.should.be.eql(0);
     });
 

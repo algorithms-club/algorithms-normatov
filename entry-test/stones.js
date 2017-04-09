@@ -12,7 +12,6 @@ function getMinStonesToDell(numberOfStones, line) {
         }
     }
     return count;
-
 }
 
 module.exports = {

@@ -1,13 +1,11 @@
 'use strict';
 
 function getYear(year) {
-    for (var i = year; i < 9013; i++) {
-        if (check(i) == true) {
-            return i;
+    for (var nextYear = year; nextYear < 9013; nextYear++) {
+        if (check(nextYear) == true) {
+            return nextYear;
         }
-
     }
-
 }
 
 function check(year) {
@@ -21,7 +19,6 @@ function check(year) {
     }
     return true;
 }
-
 
 module.exports = {
     getYear
