@@ -9,7 +9,6 @@ describe('#watermelon', function () {
         decision.should.be.eql('NO');
     });
 
-
     it('make decision if weight=1', function () {
         let decision = algolib.watermelon.makeDecision(1);
         decision.should.be.eql('NO');
