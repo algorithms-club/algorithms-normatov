@@ -66,9 +66,9 @@ describe.only('#quikUnion', function () {
 
      it('#component should return component name if component has 2 elements', function () {
      let uf = new algolib.quickUnion();
-     uf.connect(1, 2);
-     let nameOfComponent = uf.component(1);
-     nameOfComponent.should.be.eql(2);
+     uf.connect(2, 1);
+     let nameOfComponent = uf.component(2);
+     nameOfComponent.should.be.eql(1);
      })
 
      it('#component should return undefined, because element not exist', function () {
@@ -92,6 +92,6 @@ describe.only('#quikUnion', function () {
      uf.connect(1, 2);
      uf.connect(2, 3);
      let nameOfComponent = uf.component(2);
-     nameOfComponent.should.be.eql(3);
+     nameOfComponent.should.be.eql(1);
      })
 })
