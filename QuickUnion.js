@@ -36,6 +36,8 @@ class QuickUnion {
         }
         let rootA = findRoot(a, this._elements);
         let rootB = findRoot(b, this._elements);
+        this._elements[a]=rootA;
+        this._elements[b]=rootB;
         return rootA == rootB;
     }
 
