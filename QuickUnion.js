@@ -16,8 +16,8 @@ class QuickUnion {
         let rootA = findRoot(a, this._elements);
         let rootB = findRoot(b, this._elements);
 
-        if (isNaN(this._numberElementsInComponent[rootA])) this._numberElementsInComponent[rootA] = a;
-        if (isNaN(this._numberElementsInComponent[rootB])) this._numberElementsInComponent[rootB] = b;
+        if (isNaN(this._numberElementsInComponent[rootA])) this._numberElementsInComponent[rootA] = 1;
+        if (isNaN(this._numberElementsInComponent[rootB])) this._numberElementsInComponent[rootB] = 1;
 
         if (this._numberElementsInComponent[rootA] > this._numberElementsInComponent[rootB]) {
             this._elements[rootA] = rootB;
