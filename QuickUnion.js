@@ -55,17 +55,17 @@ class QuickUnion {
 
 }
 function findRoot(element, arrayOfelements) {
-/*      if (arrayOfelements[element] === element) {
+      if (arrayOfelements[element] === element) {
      return element;
      }
      else {
-     findRoot(arrayOfelements[element], arrayOfelements);
-     }*/
+    return findRoot(arrayOfelements[element], arrayOfelements);
+     }
 //why recursion does not work? it returns correct element, but comes undefined....
-    while (arrayOfelements[element] != element) {
+   /* while (arrayOfelements[element] != element) {
         element = arrayOfelements[element];
     }
-    return element;
+    return element;*/
 }
 
 module.exports = QuickUnion;
