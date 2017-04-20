@@ -36,15 +36,15 @@ class QuickUnion {
         }
         let rootA = findRoot(a, this._elements);
         let rootB = findRoot(b, this._elements);
-        this._elements[a]=rootA;
-        this._elements[b]=rootB;
+        this._elements[a] = rootA;
+        this._elements[b] = rootB;
         return rootA == rootB;
     }
 
     count() {
         let count = 0;
-        for (var nextElement = 0; nextElement < this._elements.length; nextElement++) {
-            if (this._elements[nextElement] == nextElement) count++;
+        for (var currentElement = 0; currentElement < this._elements.length; currentElement++) {
+            if (this._elements[currentElement] == currentElement) count++;
         }
         return count;
     }
@@ -55,12 +55,10 @@ class QuickUnion {
 
 }
 function findRoot(element, arrayOfelements) {
-    /*  if (arrayOfelements[element] === element) {
-     console.log('return ' + element);
+/*      if (arrayOfelements[element] === element) {
      return element;
      }
      else {
-     console.log('recursion '+arrayOfelements[element]);
      findRoot(arrayOfelements[element], arrayOfelements);
      }*/
 //why recursion does not work? it returns correct element, but comes undefined....
