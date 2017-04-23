@@ -6,6 +6,7 @@ let watermelon = require('./entry-test/watermelon.js');
 let beautifulyear = require('./entry-test/beautifulyear.js');
 let stones = require('./entry-test/stones.js');
 let chat = require('./entry-test/chat.js');
+let linkedList = require('./LinkedList.js');
 
 let algolib = {
     bubbleSort,
@@ -13,7 +14,8 @@ let algolib = {
     watermelon,
     beautifulyear,
     stones,
-    chat
+    chat,
+    linkedList
 }
 
 module.exports = algolib;
