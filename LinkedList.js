@@ -31,6 +31,7 @@ class LinkedList {
             this.lastElement._elements['next'] = elementOfList;
             this.lastElement = elementOfList;
         }
+        return true;
     }
 
 //get and remove from end
@@ -58,7 +59,7 @@ class LinkedList {
             secondElement._elements['previous'] = this.firstElement;
             this.firstElement._elements['next'] = secondElement;
         }
-
+        return true;
     }
 
     //get and remove from start

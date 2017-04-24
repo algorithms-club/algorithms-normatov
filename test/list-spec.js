@@ -18,6 +18,11 @@ describe.only('LinkedList', function () {
     });
     describe('#push(element)', function () {
 
+        it('#push(element) should return true, if  1 element will pushed to list', function () {
+            let list = new algolib.linkedList();
+            list.shift(12).should.true();
+        });
+
         it('#push 1 element to list', function () {
             let list = new algolib.linkedList();
             list.push(12);
@@ -74,6 +79,16 @@ describe.only('LinkedList', function () {
     });
 
     describe('#shift(element) and #unshift()', function () {
+
+        it('#unshift should throw exception if list is empty', function () {
+            let list = new algolib.linkedList();
+            assert.throws(list.unshift, Error, 'List is empty');
+        });
+
+        it('#shift(element) should return true, if  1 element will shifted to list', function () {
+            let list = new algolib.linkedList();
+            list.push(12).should.true();
+        });
 
         it('#shift 3 elements to list', function () {
             let list = new algolib.linkedList();
