@@ -7,7 +7,7 @@ class ElementOfList {
         this._elements = [];
         this._elements['value'] = value;
         this._elements['previous'] = previous;
-        this._elements['next'] ;
+        this._elements['next'] ='lastElementInList';
     }
 
 }
@@ -27,7 +27,7 @@ class LinkedList {
         }
         else {
             elementOfList = new ElementOfList(element, lastElement);
-            // lastElement._elements['next'] = elementOfList; TODO
+            lastElement._elements['next'] = elementOfList;
             lastElement = elementOfList;
         }
     }
@@ -55,12 +55,12 @@ class LinkedList {
             let secondElement = firstElement;
             firstElement = elementOfList;
             secondElement._elements['previous'] = firstElement;
-            firstElementю_elements['next'] = secondElement;
+            firstElement._elements['next'] = secondElement;
         }
 
     }
 
-    //get and remove from start TODO
+    //get and remove from start
     unshift() {
         if (!(firstElement instanceof ElementOfList)) {
             throw  new Error("List is empty");
