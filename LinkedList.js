@@ -1,46 +1,74 @@
 'use strict';
 
-class LinkedList {
 
-    constructor() {
+class ElementOfList {
+
+    constructor(value, previous) {
         this._elements = [];
+        this._elements['value'] = value;
+        this._elements['previous'] = previous;
+        this._elements['next'] ;
     }
+
+}
+
+let lastElement;
+let firstElement;
+
+class LinkedList {
 
 //add to end
     push(element) {
-
-        if (isNaN(this._elements['firstElement'])) {
-            this._elements['firstElement'] = element;
-            this._elements['prevElement'] = element;
-            this._elements['lastElement'] = element;
+        let elementOfList;
+        if (!(firstElement instanceof ElementOfList)) {
+            elementOfList = new ElementOfList(element, element);
+            firstElement = elementOfList;
+            lastElement = elementOfList;
         }
         else {
-            this._elements['prevElement'] = this._elements['lastElement'];
-            this._elements['value'] = element;
-            this._elements['lastElement'] = element;
-
+            elementOfList = new ElementOfList(element, lastElement);
+            // lastElement._elements['next'] = elementOfList; TODO
+            lastElement = elementOfList;
         }
-        console.log('lastElement=' + this._elements['lastElement']);
-        console.log('prevElement=' + this._elements['prevElement']);
     }
 
 //get and remove from end
     pop() {
-        let element = this._elements['lastElement'];
-        this._elements['lastElement'] = this._elements['prevElement'];
+        if (!(lastElement instanceof ElementOfList)) {
+            throw  new Error("List is empty");
+        }
+        let element = lastElement._elements['value'];
+        lastElement = lastElement._elements['previous'];
         return element;
     }
 
     // add to start
     shift(element) {
+        let elementOfList;
+        if (!(firstElement instanceof ElementOfList)) {
+            elementOfList = new ElementOfList(element, element);
+            firstElement = elementOfList;
+            lastElement = elementOfList;
+        }
+        else {
+            elementOfList = new ElementOfList(element, lastElement);
+            let secondElement = firstElement;
+            firstElement = elementOfList;
+            secondElement._elements['previous'] = firstElement;
+            firstElementю_elements['next'] = secondElement;
+        }
 
     }
 
-    //get and remove from start
+    //get and remove from start TODO
     unshift() {
-
+        if (!(firstElement instanceof ElementOfList)) {
+            throw  new Error("List is empty");
+        }
+        let element = firstElement._elements['value'];
+        firstElement = firstElement._elements['next'];
+        return element;
     }
-
 }
 
 module.exports = LinkedList;
