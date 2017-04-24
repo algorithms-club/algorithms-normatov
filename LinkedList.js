@@ -7,66 +7,67 @@ class ElementOfList {
         this._elements = [];
         this._elements['value'] = value;
         this._elements['previous'] = previous;
-        this._elements['next'] ='lastElementInList';
     }
 
 }
 
-let lastElement;
-let firstElement;
-
 class LinkedList {
+
+    constructor() {
+        this.firstElement;
+        this.lastElement;
+    }
 
 //add to end
     push(element) {
         let elementOfList;
-        if (!(firstElement instanceof ElementOfList)) {
+        if (!(this.firstElement instanceof ElementOfList)) {
             elementOfList = new ElementOfList(element, element);
-            firstElement = elementOfList;
-            lastElement = elementOfList;
+            this.firstElement = elementOfList;
+            this.lastElement = elementOfList;
         }
         else {
-            elementOfList = new ElementOfList(element, lastElement);
-            lastElement._elements['next'] = elementOfList;
-            lastElement = elementOfList;
+            elementOfList = new ElementOfList(element, this.lastElement);
+            this.lastElement._elements['next'] = elementOfList;
+            this.lastElement = elementOfList;
         }
     }
 
 //get and remove from end
     pop() {
-        if (!(lastElement instanceof ElementOfList)) {
+        if (!(this.lastElement instanceof ElementOfList)) {
             throw  new Error("List is empty");
         }
-        let element = lastElement._elements['value'];
-        lastElement = lastElement._elements['previous'];
+        let element = this.lastElement._elements['value'];
+        this.lastElement = this.lastElement._elements['previous'];
         return element;
     }
 
     // add to start
     shift(element) {
         let elementOfList;
-        if (!(firstElement instanceof ElementOfList)) {
+        if (!(this.firstElement instanceof ElementOfList)) {
             elementOfList = new ElementOfList(element, element);
-            firstElement = elementOfList;
-            lastElement = elementOfList;
+            this.firstElement = elementOfList;
+            this.lastElement = elementOfList;
         }
         else {
-            elementOfList = new ElementOfList(element, lastElement);
-            let secondElement = firstElement;
-            firstElement = elementOfList;
-            secondElement._elements['previous'] = firstElement;
-            firstElement._elements['next'] = secondElement;
+            elementOfList = new ElementOfList(element, this.lastElement);
+            let secondElement = this.firstElement;
+            this.firstElement = elementOfList;
+            secondElement._elements['previous'] = this.firstElement;
+            this.firstElement._elements['next'] = secondElement;
         }
 
     }
 
     //get and remove from start
     unshift() {
-        if (!(firstElement instanceof ElementOfList)) {
+        if (!(this.firstElement instanceof ElementOfList)) {
             throw  new Error("List is empty");
         }
-        let element = firstElement._elements['value'];
-        firstElement = firstElement._elements['next'];
+        let element = this.firstElement._elements['value'];
+        this.firstElement = this.firstElement._elements['next'];
         return element;
     }
 }
