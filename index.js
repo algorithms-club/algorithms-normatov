@@ -7,6 +7,8 @@ let beautifulyear = require('./entry-test/beautifulyear.js');
 let stones = require('./entry-test/stones.js');
 let chat = require('./entry-test/chat.js');
 let linkedList = require('./LinkedList.js');
+let stack = require('./Stack.js');
+let queue = require('./Queue.js');
 
 let algolib = {
     bubbleSort,
@@ -15,7 +17,9 @@ let algolib = {
     beautifulyear,
     stones,
     chat,
-    linkedList
+    linkedList,
+    stack,
+    queue
 }
 
 module.exports = algolib;

@@ -3,7 +3,7 @@
 const algolib = require('../index.js');
 var assert = require('assert');
 
-describe.only('LinkedList', function () {
+describe('LinkedList', function () {
 
     describe('#data structure', function () {
 
