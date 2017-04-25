@@ -1,14 +1,15 @@
 'use strict';
 
-let bubbleSort = require('./bubble-sort');
-let coverByTile = require('./entry-test/coverByTile.js');
-let watermelon = require('./entry-test/watermelon.js');
-let beautifulyear = require('./entry-test/beautifulyear.js');
-let stones = require('./entry-test/stones.js');
-let chat = require('./entry-test/chat.js');
-let linkedList = require('./LinkedList.js');
-let stack = require('./Stack.js');
-let queue = require('./Queue.js');
+let bubbleSort = require('./methods/bubbleSort/bubble-sort');
+let coverByTile = require('./methods/coverByTile/coverByTile.js');
+let watermelon = require('./methods/watermelon/watermelon.js');
+let beautifulyear = require('./methods/beautifulyear/beautifulyear.js');
+let stones = require('./methods/stones/stones.js');
+let chat = require('./methods/chat/chat.js');
+let linkedListArray = require('./methods/LinkedList/LinkedListArray.js');
+let linkedListObject = require('./methods/LinkedList/LinkedListObject.js');
+let stack = require('./methods/stack/Stack.js');
+let queue = require('./methods/queue/Queue.js');
 
 let algolib = {
     bubbleSort,
@@ -17,9 +18,10 @@ let algolib = {
     beautifulyear,
     stones,
     chat,
-    linkedList,
+    linkedListArray,
     stack,
-    queue
+    queue,
+    linkedListObject
 }
 
 module.exports = algolib;

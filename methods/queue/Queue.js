@@ -1,6 +1,6 @@
 'use strict';
 
-let linkedList = require('./LinkedList.js');
+let linkedList = require('../LinkedList/LinkedListArray.js');
 
 class Queue {
 
