@@ -1,8 +1,8 @@
 'use strict';
 
-let bubbleSort = require('./bubble-sort');
-let coverByTile = require('./entry-test/coverByTile.js');
-let quickUnion = require('./QuickUnion.js');
+let bubbleSort = require('./methods/bubbleSort/bubble-sort');
+let coverByTile = require('./methods/coverByTile/coverByTile.js');
+let quickUnion = require('./methods/QuickUnion/QuickUnion.js');
 
 let algolib = {
     bubbleSort,
