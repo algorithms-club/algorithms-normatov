@@ -1,5 +1,6 @@
 'use strict';
 
+
 module.exports = function(arr) {
     if (!arr.length) {
         return arr
@@ -30,5 +31,6 @@ module.exports = function(arr) {
 
         i++;
 
-    } while(true);
+    } while (true);
+
 }
