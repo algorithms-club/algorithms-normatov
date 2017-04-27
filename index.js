@@ -1,11 +1,11 @@
 'use strict';
 
-let bubbleSort = require('./bubble-sort');
-let coverByTile = require('./entry-test/coverByTile.js');
-let watermelon = require('./entry-test/watermelon.js');
-let beautifulyear = require('./entry-test/beautifulyear.js');
-let stones = require('./entry-test/stones.js');
-let chat = require('./entry-test/chat.js');
+let bubbleSort = require('./methods/bubbleSort/bubble-sort');
+let coverByTile = require('./methods/coverByTile/coverByTile.js');
+let watermelon = require('./methods/watermelon/watermelon.js');
+let beautifulyear = require('./methods/beautifulyear/beautifulyear.js');
+let stones = require('./methods/stones/stones.js');
+let chat = require('./methods/chat/chat.js');
 
 let algolib = {
     bubbleSort,
