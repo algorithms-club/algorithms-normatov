@@ -1,8 +1,8 @@
 'use strict';
 
-let bubbleSort = require('./bubble-sort');
-let coverByTile = require('./entry-test/coverByTile.js');
-let UnionFind = require('./unionFind.js');
+let bubbleSort = require('./methods/bubbleSort/bubble-sort');
+let coverByTile = require('./methods/coverByTile/coverByTile.js');
+let UnionFind = require('./methods/UnionFind/unionFind.js');
 
 let algolib = {
     bubbleSort,
