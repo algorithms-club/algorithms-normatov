@@ -47,6 +47,26 @@ describe('Sorting', function () {
             sortArray.should.be.eql([1, 2, 3]);
         });
     });
+    describe('#quickSort', function () {
+
+        it.only('should sort collection of numbers', function () {
+            let array = [6, 4, 2, 1, 1, 3, 5];
+            console.log(array);
+            let sortArray = algolib.sort.quickSort(array);
+            console.log(sortArray);
+            sortArray.should.be.eql([1, 1, 2, 3, 4, 5, 6]);
+        });
+        it('should return empty collection when empty collection was passed', function () {
+            let array = [];
+            let sortArray = algolib.sort.quickSort(array);
+            sortArray.should.be.eql([]);
+        });
+        it('should return sorted collection if sorted collection was passed', function () {
+            let array = [1, 2, 3];
+            let sortArray = algolib.sort.quickSort(array);
+            sortArray.should.be.eql([1, 2, 3]);
+        });
+    });
     describe('#selectionSort', function () {
         it('should sort collection of numbers', function () {
             let array = [2, 1, 3, 5, 4];

@@ -2,8 +2,33 @@
 
 class Sorting {
 
-    static quikSort(collection) {
-
+    static quickSort(collection) {
+        let tempArrayBeforePivot = [];
+        let tempArrayAfterPivot = [];
+        let arraySize = collection.length;
+        if (arraySize < 2) return collection;
+        if (arraySize == 2) {
+            if (collection[0] > collection[1]) {
+                let temp = collection[0];
+                collection[0] = collection[1];
+                collection[1] = temp;
+            }
+        }
+        else {
+            let pivotIndex = Math.floor(Math.random() * (arraySize - 2)) + 1;
+            for (let i = 0; i < arraySize; i++) {
+                if (i != pivotIndex) {
+                    if (collection[i] < collection[pivotIndex]) {
+                        tempArrayBeforePivot.push(collection[i]);
+                    }
+                    else tempArrayAfterPivot.push(collection[i]);
+                }
+            }
+            tempArrayBeforePivot = Sorting.quickSort(tempArrayBeforePivot);
+            tempArrayAfterPivot = Sorting.quickSort(tempArrayAfterPivot);
+            tempArrayBeforePivot.push(collection[pivotIndex]);
+            collection = (tempArrayBeforePivot).concat(tempArrayAfterPivot);
+        }
         return collection;
     }
 
