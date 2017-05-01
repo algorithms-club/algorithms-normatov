@@ -13,7 +13,7 @@ let algolib = {
     watermelon,
     beautifulyear,
     stones,
-    chat
+    chat,
 }
 
 module.exports = algolib;
