@@ -94,7 +94,9 @@ class Sorting {
 
     static shuffle(collection) {
         let arraySize = collection.length;
-        let shift = Math.floor(Math.random() * (arraySize - 2)) + 1;
+        if (isNaN(arraySize)) return collection;
+        let shift = Math.floor(Math.random() * (arraySize - 1)) + 1;
+        console.log(shift);
         for (let i = shift; i < arraySize; i += shift) {
             let temp = collection[i - 1];
             collection[i - 1] = collection[i];

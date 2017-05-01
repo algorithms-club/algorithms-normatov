@@ -104,7 +104,7 @@ describe('Sorting', function () {
             let shuffleArray = algolib.sort.shuffle(array);
             algolib.sort.isSorted(shuffleArray, algolib.sort.compareNumbers).should.be.false();
         });
-        it('should return shuffle collection is not sorted', function () {
+        it('should return shuffle collection collection is not sorted', function () {
             let array = [2, 1, 3];
             let shuffleArray = algolib.sort.shuffle(array);
             algolib.sort.isSorted(shuffleArray, algolib.sort.compareNumbers).should.be.false();
