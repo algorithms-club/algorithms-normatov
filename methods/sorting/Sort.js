@@ -2,6 +2,11 @@
 
 class Sorting {
 
+    static quikSort(collection) {
+
+        return collection;
+    }
+
     static insertionSort(collection) {
         let arraySize = collection.length;
         let valueMinElement;
@@ -100,7 +105,7 @@ class Sorting {
 
     static  isSorted(collection, compare) {
         let arraySize = collection.length;
-        if (arraySize == 0) return true;
+        if (isNaN(arraySize)) return true;
         for (let i = 1; i < arraySize; i++) {
             if (compare(collection[i - 1], collection[i])) return false;
         }
