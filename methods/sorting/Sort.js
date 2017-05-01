@@ -100,6 +100,7 @@ class Sorting {
 
     static  isSorted(collection, compare) {
         let arraySize = collection.length;
+        if (arraySize == 0) return true;
         for (let i = 1; i < arraySize; i++) {
             if (compare(collection[i - 1], collection[i])) return false;
         }
