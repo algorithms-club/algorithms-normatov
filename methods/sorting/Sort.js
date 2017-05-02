@@ -2,6 +2,56 @@
 
 class Sorting {
 
+    static mergeSort(collection) {
+        let arraySize = collection.length;
+        if (arraySize < 2) return collection;
+        else {
+            let tempFirstArray = [];
+            let tempSecondArray = [];
+            for (let i = 0; i < arraySize; i++) {
+                if (i < arraySize / 2) {
+                    tempFirstArray.push(collection[i]);
+                }
+                else tempSecondArray.push(collection[i]);
+            }
+            collection = Sorting.merge(Sorting.mergeSort(tempFirstArray), Sorting.mergeSort(tempSecondArray));
+        }
+        return collection;
+    }
+
+    static merge(collectionOne, collectionTwo) {
+        let resultCollection = [];
+        let collectionOneSize = collectionOne.length;
+        let collectionTwoSize = collectionTwo.length;
+        let resultArraySize = collectionOneSize + collectionTwoSize;
+        let collectionOneIndex = 0;
+        let collectionTwoIndex = 0;
+        while (resultArraySize) {
+            if (isNaN(collectionOne[collectionOneIndex])) {
+                resultCollection.push(collectionTwo[collectionTwoIndex]);
+                collectionTwoIndex++;
+                resultArraySize--;
+                continue;
+            }
+            if (isNaN(collectionTwo[collectionTwoIndex])) {
+                resultCollection.push(collectionOne[collectionOneIndex]);
+                collectionOneIndex++;
+                resultArraySize--;
+                continue;
+            }
+            if (collectionOne[collectionOneIndex] < collectionTwo[collectionTwoIndex]) {
+                resultCollection.push(collectionOne[collectionOneIndex]);
+                collectionOneIndex++;
+            }
+            else {
+                resultCollection.push(collectionTwo[collectionTwoIndex]);
+                collectionTwoIndex++;
+            }
+            resultArraySize--;
+        }
+        return resultCollection;
+    }
+
     static quickSort(collection) {
         let tempArrayBeforePivot = [];
         let tempArrayAfterPivot = [];
@@ -121,7 +171,6 @@ class Sorting {
         let arraySize = collection.length;
         if (isNaN(arraySize)) return collection;
         let shift = Math.floor(Math.random() * (arraySize - 1)) + 1;
-        console.log(shift);
         for (let i = shift; i < arraySize; i += shift) {
             let temp = collection[i - 1];
             collection[i - 1] = collection[i];

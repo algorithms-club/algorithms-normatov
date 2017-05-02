@@ -49,11 +49,9 @@ describe('Sorting', function () {
     });
     describe('#quickSort', function () {
 
-        it.only('should sort collection of numbers', function () {
+        it('should sort collection of numbers', function () {
             let array = [6, 4, 2, 1, 1, 3, 5];
-            console.log(array);
             let sortArray = algolib.sort.quickSort(array);
-            console.log(sortArray);
             sortArray.should.be.eql([1, 1, 2, 3, 4, 5, 6]);
         });
         it('should return empty collection when empty collection was passed', function () {
@@ -64,6 +62,30 @@ describe('Sorting', function () {
         it('should return sorted collection if sorted collection was passed', function () {
             let array = [1, 2, 3];
             let sortArray = algolib.sort.quickSort(array);
+            sortArray.should.be.eql([1, 2, 3]);
+        });
+    });
+    describe('#mergeSort', function () {
+        it('should merge two sorted collections of numbers', function () {
+            let arrayFirst = [2, 4];
+            let arraySecond = [1, 3, 5];
+            let mergedArray = algolib.sort.merge(arrayFirst, arraySecond);
+            mergedArray.should.be.eql([1, 2, 3, 4, 5]);
+        });
+
+        it('should sort collection of numbers', function () {
+            let array = [3, 2, 1, 4, 5];
+            let sortArray = algolib.sort.mergeSort(array);
+            sortArray.should.be.eql([1, 2, 3, 4, 5]);
+        });
+        it('should return empty collection when empty collection was passed', function () {
+            let array = [];
+            let sortArray = algolib.sort.mergeSort(array);
+            sortArray.should.be.eql([]);
+        });
+        it('should return sorted collection if sorted collection was passed', function () {
+            let array = [1, 2, 3];
+            let sortArray = algolib.sort.mergeSort(array);
             sortArray.should.be.eql([1, 2, 3]);
         });
     });
