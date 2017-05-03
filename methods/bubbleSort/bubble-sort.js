@@ -30,7 +30,5 @@ module.exports = function(arr) {
         }
 
         i++;
-
-    } while (true);
-
+    } while(true);
 }
