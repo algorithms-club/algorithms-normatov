@@ -8,7 +8,10 @@ let watermelon = require('./methods/watermelon/watermelon.js');
 let beautifulyear = require('./methods/beautifulyear/beautifulyear.js');
 let stones = require('./methods/stones/stones.js');
 let chat = require('./methods/chat/chat.js');
-
+let linkedListArray = require('./methods/LinkedList/LinkedListArray.js');
+let linkedListObject = require('./methods/LinkedList/LinkedListObject.js');
+let stack = require('./methods/stack/Stack.js');
+let queue = require('./methods/queue/Queue.js');
 
 let algolib = {
     bubbleSort,
@@ -18,6 +21,10 @@ let algolib = {
     beautifulyear,
     stones,
     chat,
+    linkedListArray,
+    stack,
+    queue,
+    linkedListObject,
     quickUnion
 }
 

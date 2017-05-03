@@ -1,6 +1,4 @@
 'use strict';
-
-
 module.exports = function(arr) {
     if (!arr.length) {
         return arr
@@ -28,7 +26,6 @@ module.exports = function(arr) {
 
             isSwap = true;
         }
-
-        i++;
+        i++;  
     } while(true);
 }
