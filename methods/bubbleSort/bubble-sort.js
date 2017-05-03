@@ -6,7 +6,6 @@ module.exports = function(arr) {
         return arr
     };
 
-
     let isSwap = false;
     let i = 0;
 
@@ -31,6 +30,5 @@ module.exports = function(arr) {
         }
 
         i++;
-      
     } while(true);
 }
