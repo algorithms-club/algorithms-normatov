@@ -2,10 +2,9 @@
 
 const algolib = require('../index.js');
 
-describe('bubble-sort', function () {
+describe('#bubble-everythingSort', function () {
     it('should return emty array when empty array was passed', function () {
         let sortedArr = algolib.bubbleSort([]);
-
         sortedArr.should.be.eql([]);
     });
 
@@ -15,7 +14,7 @@ describe('bubble-sort', function () {
         sortedArr.should.be.eql([1, 2, 3, 4]);
     });
 
-    it('should sort array', function () {
+    it('should everythingSort array', function () {
         let sortedArr = algolib.bubbleSort([2, 3, 6, 1, 3, 4, 7, 5]);
 
         sortedArr.should.be.eql([1, 2, 3, 3, 4, 5, 6, 7]);
