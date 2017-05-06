@@ -7,7 +7,7 @@ class Sorting {
         if (arraySize < 2) return collection;
         else {
             let tempFirstArray = [];
-            let tempSecondArray = [];
+            let tempSecondArray = [];/*TODO slice*/
             for (let i = 0; i < arraySize; i++) {
                 if (i < arraySize / 2) {
                     tempFirstArray.push(collection[i]);
@@ -27,7 +27,7 @@ class Sorting {
         let collectionOneIndex = 0;
         let collectionTwoIndex = 0;
         while (resultArraySize) {
-            if (isNaN(collectionOne[collectionOneIndex])) {
+            if (isNaN(collectionOne[collectionOneIndex])) { /*TODO if for string*/
                 resultCollection.push(collectionTwo[collectionTwoIndex]);
                 collectionTwoIndex++;
                 resultArraySize--;
