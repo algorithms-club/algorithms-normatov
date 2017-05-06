@@ -2,7 +2,7 @@
 
 const algolib = require('../index.js');
 
-describe.only('#quikUnion', function () {
+describe('#quikUnion', function () {
     it('#should create proper data structure', function () {
         let qu = new algolib.quickUnion();
         qu.connect.should.be.instanceOf(Function);

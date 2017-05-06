@@ -2,7 +2,7 @@
 
 const algolib = require('../index.js');
 
-describe('Sorting', function () {
+describe.only('Sorting', function () {
     describe('#everythingSort', function () {
         it('should everythingSort collections of sorting numbers', function () {
             let array = [1, 2, 3];
