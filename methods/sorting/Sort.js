@@ -2,18 +2,18 @@
 
 class Sorting {
 
-    static mergeSort(collection) {
+    static mergeSort(collection, compare) {
         let arraySize = collection.length;
         if (arraySize < 2) return collection;
         else {
             let tempFirstArray = collection.slice(0, Math.floor(arraySize / 2));
             let tempSecondArray = collection.slice(Math.floor(arraySize / 2));
-            collection = Sorting.merge(Sorting.mergeSort(tempFirstArray), Sorting.mergeSort(tempSecondArray));
+            collection = Sorting.merge(Sorting.mergeSort(tempFirstArray,compare), Sorting.mergeSort(tempSecondArray,compare), compare);
         }
         return collection;
     }
 
-    static merge(collectionOne, collectionTwo) {
+    static merge(collectionOne, collectionTwo, compare) {
         let resultCollection = [];
         let collectionOneSize = collectionOne.length;
         let collectionTwoSize = collectionTwo.length;
@@ -33,7 +33,7 @@ class Sorting {
                 resultArraySize--;
                 continue;
             }
-            if (collectionOne[collectionOneIndex] < collectionTwo[collectionTwoIndex]) {
+            if (!compare(collectionOne[collectionOneIndex], collectionTwo[collectionTwoIndex])) {
                 resultCollection.push(collectionOne[collectionOneIndex]);
                 collectionOneIndex++;
             }
@@ -46,13 +46,14 @@ class Sorting {
         return resultCollection;
     }
 
-    static quickSort(collection) {
+    static quickSort(collection, compare) {
         let tempArrayBeforePivot = [];
         let tempArrayAfterPivot = [];
         let arraySize = collection.length;
         if (arraySize < 2) return collection;
         if (arraySize == 2) {
-            if (collection[0] > collection[1]) {
+            // if (collection[0] > collection[1]) {
+            if (compare(collection[0], collection[1])) {
                 let temp = collection[0];
                 collection[0] = collection[1];
                 collection[1] = temp;
@@ -62,26 +63,26 @@ class Sorting {
             let pivotIndex = Math.floor(Math.random() * (arraySize - 2)) + 1;
             for (let i = 0; i < arraySize; i++) {
                 if (i != pivotIndex) {
-                    if (collection[i] < collection[pivotIndex]) {
+                    if (!compare(collection[i], collection[pivotIndex])) {
                         tempArrayBeforePivot.push(collection[i]);
                     }
                     else tempArrayAfterPivot.push(collection[i]);
                 }
             }
-            tempArrayBeforePivot = Sorting.quickSort(tempArrayBeforePivot);
-            tempArrayAfterPivot = Sorting.quickSort(tempArrayAfterPivot);
+            tempArrayBeforePivot = Sorting.quickSort(tempArrayBeforePivot, compare);
+            tempArrayAfterPivot = Sorting.quickSort(tempArrayAfterPivot, compare);
             tempArrayBeforePivot.push(collection[pivotIndex]);
             collection = (tempArrayBeforePivot).concat(tempArrayAfterPivot);
         }
         return collection;
     }
 
-    static insertionSort(collection) {
+    static insertionSort(collection, compare) {
         let arraySize = collection.length;
         let valueMinElement;
         for (let i = 1; i < arraySize; i++) {
             for (let j = i - 1; j >= 0; j--) {
-                if (collection[j] > collection[j + 1]) {
+                if (compare(collection[j], collection[j + 1])) {
                     valueMinElement = collection[j];
                     collection[j] = collection[j + 1];
                     collection[j + 1] = valueMinElement;
@@ -92,7 +93,7 @@ class Sorting {
         return collection;
     }
 
-    static shellSort(collection) {
+    static shellSort(collection, compare) {
         let arraySize = collection.length;
         let gapArray = [];
         let elementInGap = 0;
@@ -108,7 +109,7 @@ class Sorting {
             elementInGap = gapArray.pop();
             for (let i = elementInGap; i < arraySize; i += elementInGap) {
                 for (let j = i - 1; j >= 0; j--) {
-                    if (collection[j] > collection[j + 1]) {
+                    if (compare(collection[j], collection[j + 1])) {
                         valueMinElement = collection[j];
                         collection[j] = collection[j + 1];
                         collection[j + 1] = valueMinElement;
@@ -120,13 +121,13 @@ class Sorting {
         return collection;
     }
 
-    static selectionSort(collection) {
+    static selectionSort(collection, compare) {
         let arraySize = collection.length;
         for (let i = 0; i < arraySize; i++) {
             let minElement = collection[i];
             let indexOfMinElement = i;
             for (let j = i; j < arraySize; j++) {
-                if (minElement > collection[j]) {
+                if (compare(minElement, collection[j])) {
                     minElement = collection[j];
                     indexOfMinElement = j;
                 }
@@ -170,7 +171,6 @@ class Sorting {
             collection[i - 1] = collection[i];
             collection[i] = temp;
         }
-        console.log(collection);
         return collection;
     }
 
