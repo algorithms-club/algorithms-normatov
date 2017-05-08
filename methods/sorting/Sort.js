@@ -6,14 +6,8 @@ class Sorting {
         let arraySize = collection.length;
         if (arraySize < 2) return collection;
         else {
-            let tempFirstArray = [];
-            let tempSecondArray = [];/*TODO slice*/
-            for (let i = 0; i < arraySize; i++) {
-                if (i < arraySize / 2) {
-                    tempFirstArray.push(collection[i]);
-                }
-                else tempSecondArray.push(collection[i]);
-            }
+            let tempFirstArray = collection.slice(0, Math.floor(arraySize / 2));
+            let tempSecondArray = collection.slice(Math.floor(arraySize / 2));
             collection = Sorting.merge(Sorting.mergeSort(tempFirstArray), Sorting.mergeSort(tempSecondArray));
         }
         return collection;
@@ -27,13 +21,13 @@ class Sorting {
         let collectionOneIndex = 0;
         let collectionTwoIndex = 0;
         while (resultArraySize) {
-            if (isNaN(collectionOne[collectionOneIndex])) { /*TODO if for string*/
+            if (collectionOneSize - 1 < collectionOneIndex) {
                 resultCollection.push(collectionTwo[collectionTwoIndex]);
                 collectionTwoIndex++;
                 resultArraySize--;
                 continue;
             }
-            if (isNaN(collectionTwo[collectionTwoIndex])) {
+            if (collectionTwoSize - 1 < collectionTwoIndex) {
                 resultCollection.push(collectionOne[collectionOneIndex]);
                 collectionOneIndex++;
                 resultArraySize--;
@@ -176,6 +170,7 @@ class Sorting {
             collection[i - 1] = collection[i];
             collection[i] = temp;
         }
+        console.log(collection);
         return collection;
     }
 

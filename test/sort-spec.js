@@ -2,7 +2,7 @@
 
 const algolib = require('../index.js');
 
-describe.only('Sorting', function () {
+describe('Sorting', function () {
     describe('#everythingSort', function () {
         it('should everythingSort collections of sorting numbers', function () {
             let array = [1, 2, 3];
@@ -64,6 +64,12 @@ describe.only('Sorting', function () {
             let sortArray = algolib.sort.quickSort(array);
             sortArray.should.be.eql([1, 2, 3]);
         });
+        it('should return sorted collection if collection unsorted', function () {
+            let array = [1, 1, 1, 3, 3, 1, 3, 1];
+            let sortArray = algolib.sort.quickSort(array);
+            sortArray.should.be.eql([1, 1, 1, 1, 1, 3, 3, 3]);
+        });
+
     });
     describe('#mergeSort', function () {
         it('should merge two sorted collections of numbers', function () {
@@ -71,6 +77,13 @@ describe.only('Sorting', function () {
             let arraySecond = [1, 3, 5];
             let mergedArray = algolib.sort.merge(arrayFirst, arraySecond);
             mergedArray.should.be.eql([1, 2, 3, 4, 5]);
+        });
+
+        it('should merge two sorted collections of letters', function () {
+            let arrayFirst = ['b', 'd'];
+            let arraySecond = ['a', 'c', 'e'];
+            let mergedArray = algolib.sort.merge(arrayFirst, arraySecond);
+            mergedArray.should.be.eql(['a', 'b', 'c', 'd', 'e']);
         });
 
         it('should sort collection of numbers', function () {
@@ -142,7 +155,7 @@ describe.only('Sorting', function () {
     });
     describe('#shuffle', function () {
         it('should return shuffle collection if collection is sorted', function () {
-            let array = [1, 2, 3];
+            let array = [1, 2, 3, 4, 5];
             let shuffleArray = algolib.sort.shuffle(array);
             algolib.sort.isSorted(shuffleArray, algolib.sort.compareNumbers).should.be.false();
         });
