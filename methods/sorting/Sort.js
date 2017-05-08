@@ -51,7 +51,6 @@ class Sorting {
         let arraySize = collection.length;
         if (arraySize < 2) return collection;
         if (arraySize == 2) {
-            // if (collection[0] > collection[1]) {
             if (compare(collection[0], collection[1])) {
                 let temp = collection[0];
                 collection[0] = collection[1];

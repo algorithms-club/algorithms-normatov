@@ -216,76 +216,134 @@ describe.only('Sorting', function () {
         });
     });
     describe('#stuble algorithms', function () {
-        it('should sort collection of objects, using first property of object', function () {
+        it('MergeSort. Should sort collection of objects. First using string property of object and after integer', function () {
             let objectsCollection = [
-                {
-                    name: 'Adam',
-                    rate: 4
-                },
-                {
-                    name: 'Bob',
-                    rate: 3
-                },
-                {
-                    name: 'Allice',
-                    rate: 2
-                },
-                {
-                    name: 'Mark',
-                    rate: 3
-                },
-                {
-                    name: 'Mark',
-                    rate: 1
-                },
-                {
-                    name: 'Mark',
-                    rate: 2
-                },
-                {
-                    name: 'Kate',
-                    rate: 17
-                },
-                {
-                    name: 'Eva',
-                    rate: 1
-                }];
-            let sortedCollection = algolib.sort.mergeSort(objectsCollection, algolib.sort.compareObjectsByName);
-            sortedCollection.should.be.eql([
-                {
-                    name: 'Adam',
-                    rate: 4
-                },
-                {
-                    name: 'Allice',
-                    rate: 2
-                },
-                {
-                    name: 'Bob',
-                    rate: 3
-                },
-                {
-                    name: 'Eva',
-                    rate: 1
-                },
-                {
-                    name: 'Kate',
-                    rate: 17
-                },
-                {
-                    name: 'Mark',
-                    rate: 3
-                },
-                {
-                    name: 'Mark',
-                    rate: 1
-                },
-                {
-                    name: 'Mark',
-                    rate: 2
-                },
-
+                { name: 'Adam', rate: 2 },
+                { name: 'Mark', rate: 2 },
+                { name: 'Bob', rate: 3 },
+                { name: 'Adam', rate: 7 },
+                { name: 'Alice', rate: 2 },
+                { name: 'Mark', rate: 3 },
+                { name: 'Mark', rate: 1 },
+                { name: 'Adam', rate: 1 },
+                { name: 'Kate', rate: 17 },
+                { name: 'Eva', rate: 1 },
+                { name: 'Adam', rate: 4 }
+                ];
+            let sortedCollectionByRate = algolib.sort.mergeSort(objectsCollection, algolib.sort.compareObjectsByRate);
+            sortedCollectionByRate.should.be.eql([
+                { name: 'Mark', rate: 1 },
+                { name: 'Adam', rate: 1 },
+                { name: 'Eva', rate: 1 },
+                { name: 'Adam', rate: 2 },
+                { name: 'Mark', rate: 2 },
+                { name: 'Alice', rate: 2 },
+                { name: 'Bob', rate: 3 },
+                { name: 'Mark', rate: 3 },
+                { name: 'Adam', rate: 4 },
+                { name: 'Adam', rate: 7 },
+                { name: 'Kate', rate: 17 }
+                ]);
+            let sortedCollectionByName = algolib.sort.mergeSort(sortedCollectionByRate, algolib.sort.compareObjectsByName);
+            sortedCollectionByName.should.be.eql([
+                {name: 'Adam', rate: 1},
+                {name: 'Adam', rate: 2},
+                {name: 'Adam', rate: 4},
+                {name: 'Adam', rate: 7},
+                {name: 'Alice', rate: 2},
+                {name: 'Bob', rate: 3},
+                {name: 'Eva', rate: 1},
+                {name: 'Kate', rate: 17},
+                {name: 'Mark', rate: 1},
+                {name: 'Mark', rate: 2},
+                {name: 'Mark', rate: 3}
+            ])
+        });
+        it('InsertionSort. Should sort collection of objects. First using string property of object and after integer', function () {
+            let objectsCollection = [
+                { name: 'Adam', rate: 2 },
+                { name: 'Mark', rate: 2 },
+                { name: 'Bob', rate: 3 },
+                { name: 'Adam', rate: 7 },
+                { name: 'Alice', rate: 2 },
+                { name: 'Mark', rate: 3 },
+                { name: 'Mark', rate: 1 },
+                { name: 'Adam', rate: 1 },
+                { name: 'Kate', rate: 17 },
+                { name: 'Eva', rate: 1 },
+                { name: 'Adam', rate: 4 }
+            ];
+            let sortedCollectionByRate = algolib.sort.insertionSort(objectsCollection, algolib.sort.compareObjectsByRate);
+            sortedCollectionByRate.should.be.eql([
+                { name: 'Mark', rate: 1 },
+                { name: 'Adam', rate: 1 },
+                { name: 'Eva', rate: 1 },
+                { name: 'Adam', rate: 2 },
+                { name: 'Mark', rate: 2 },
+                { name: 'Alice', rate: 2 },
+                { name: 'Bob', rate: 3 },
+                { name: 'Mark', rate: 3 },
+                { name: 'Adam', rate: 4 },
+                { name: 'Adam', rate: 7 },
+                { name: 'Kate', rate: 17 }
             ]);
+            let sortedCollectionByName = algolib.sort.insertionSort(sortedCollectionByRate, algolib.sort.compareObjectsByName);
+            sortedCollectionByName.should.be.eql([
+                {name: 'Adam', rate: 1},
+                {name: 'Adam', rate: 2},
+                {name: 'Adam', rate: 4},
+                {name: 'Adam', rate: 7},
+                {name: 'Alice', rate: 2},
+                {name: 'Bob', rate: 3},
+                {name: 'Eva', rate: 1},
+                {name: 'Kate', rate: 17},
+                {name: 'Mark', rate: 1},
+                {name: 'Mark', rate: 2},
+                {name: 'Mark', rate: 3}
+            ])
+        });
+        it('ShellSort. Should sort collection of objects. First using string property of object and after integer', function () {
+            let objectsCollection = [
+                { name: 'Adam', rate: 2 },
+                { name: 'Mark', rate: 2 },
+                { name: 'Bob', rate: 3 },
+                { name: 'Adam', rate: 7 },
+                { name: 'Alice', rate: 2 },
+                { name: 'Mark', rate: 3 },
+                { name: 'Mark', rate: 1 },
+                { name: 'Adam', rate: 1 },
+                { name: 'Kate', rate: 17 },
+                { name: 'Eva', rate: 1 },
+                { name: 'Adam', rate: 4 }
+            ];
+            let sortedCollectionByRate = algolib.sort.shellSort(objectsCollection, algolib.sort.compareObjectsByRate);
+            sortedCollectionByRate.should.be.eql([
+                { name: 'Mark', rate: 1 },
+                { name: 'Adam', rate: 1 },
+                { name: 'Eva', rate: 1 },
+                { name: 'Adam', rate: 2 },
+                { name: 'Mark', rate: 2 },
+                { name: 'Alice', rate: 2 },
+                { name: 'Bob', rate: 3 },
+                { name: 'Mark', rate: 3 },
+                { name: 'Adam', rate: 4 },
+                { name: 'Adam', rate: 7 },
+                { name: 'Kate', rate: 17 }
+            ]);
+            let sortedCollectionByName = algolib.sort.shellSort(sortedCollectionByRate, algolib.sort.compareObjectsByName);
+            sortedCollectionByName.should.be.eql([
+                {name: 'Adam', rate: 1},
+                {name: 'Adam', rate: 2},
+                {name: 'Adam', rate: 4},
+                {name: 'Adam', rate: 7},
+                {name: 'Alice', rate: 2},
+                {name: 'Bob', rate: 3},
+                {name: 'Eva', rate: 1},
+                {name: 'Kate', rate: 17},
+                {name: 'Mark', rate: 1},
+                {name: 'Mark', rate: 2},
+                {name: 'Mark', rate: 3}
+            ])
         });
     });
 });
