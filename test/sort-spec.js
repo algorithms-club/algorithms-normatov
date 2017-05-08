@@ -3,6 +3,51 @@
 const algolib = require('../index.js');
 
 describe('Sorting', function () {
+    describe('#count number of operation in different algorithms', function () {
+        it('count operations in insertionSort', function () {
+            let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
+            let sortArray = algolib.sort.insertionSort(array, algolib.sort.compareNumbers);
+            sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+            console.log(algolib.sort.countOfOperations);
+            algolib.sort.countOfOperations = 0;
+        });
+        it('count operations in everythingSort', function () {
+            let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
+            let sortArray = algolib.sort.everythingSort(array, algolib.sort.compareNumbers);
+            sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+            console.log(algolib.sort.countOfOperations);
+            algolib.sort.countOfOperations = 0;
+        });
+        it('count operations in selectionSort', function () {
+            let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
+            let sortArray = algolib.sort.selectionSort(array, algolib.sort.compareNumbers);
+            sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+            console.log(algolib.sort.countOfOperations);
+            algolib.sort.countOfOperations = 0;
+        });
+        it('count operations in mergeSort', function () {
+            let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
+            let sortArray = algolib.sort.mergeSort(array, algolib.sort.compareNumbers);
+            sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+            console.log(algolib.sort.countOfOperations);
+            algolib.sort.countOfOperations = 0;
+        });
+        it('count operations in shellSort', function () {
+            let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
+            let sortArray = algolib.sort.shellSort(array, algolib.sort.compareNumbers);
+            sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+            console.log(algolib.sort.countOfOperations);
+            algolib.sort.countOfOperations = 0;
+        });
+        it('count operations in quickSort', function () {
+            let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
+            let sortArray = algolib.sort.quickSort(array, algolib.sort.compareNumbers);
+            sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+            console.log(algolib.sort.countOfOperations);
+            algolib.sort.countOfOperations = 0;
+        });
+    });
+
     describe('#everythingSort', function () {
         it('should everythingSort collections of sorting numbers', function () {
             let array = [1, 2, 3];
@@ -170,5 +215,77 @@ describe('Sorting', function () {
             algolib.sort.isSorted(shuffleArray).should.be.true();
         });
     });
+    describe('#stuble algorithms', function () {
+        it('should sort collection of objects, using first property of object', function () {
+            let objectsCollection = [
+                {
+                    name: 'Adam',
+                    rate: 4
+                },
+                {
+                    name: 'Bob',
+                    rate: 3
+                },
+                {
+                    name: 'Allice',
+                    rate: 2
+                },
+                {
+                    name: 'Mark',
+                    rate: 3
+                },
+                {
+                    name: 'Mark',
+                    rate: 1
+                },
+                {
+                    name: 'Mark',
+                    rate: 2
+                },
+                {
+                    name: 'Kate',
+                    rate: 17
+                },
+                {
+                    name: 'Eva',
+                    rate: 1
+                }];
+            let sortedCollection = algolib.sort.mergeSort(objectsCollection, algolib.sort.compareObjectsByName);
+            sortedCollection.should.be.eql([
+                {
+                    name: 'Adam',
+                    rate: 4
+                },
+                {
+                    name: 'Allice',
+                    rate: 2
+                },
+                {
+                    name: 'Bob',
+                    rate: 3
+                },
+                {
+                    name: 'Eva',
+                    rate: 1
+                },
+                {
+                    name: 'Kate',
+                    rate: 17
+                },
+                {
+                    name: 'Mark',
+                    rate: 3
+                },
+                {
+                    name: 'Mark',
+                    rate: 1
+                },
+                {
+                    name: 'Mark',
+                    rate: 2
+                },
 
+            ]);
+        });
+    });
 });

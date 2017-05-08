@@ -1,14 +1,13 @@
 'use strict';
 
 class Sorting {
-
     static mergeSort(collection, compare) {
         let arraySize = collection.length;
         if (arraySize < 2) return collection;
         else {
             let tempFirstArray = collection.slice(0, Math.floor(arraySize / 2));
             let tempSecondArray = collection.slice(Math.floor(arraySize / 2));
-            collection = Sorting.merge(Sorting.mergeSort(tempFirstArray,compare), Sorting.mergeSort(tempSecondArray,compare), compare);
+            collection = Sorting.merge(Sorting.mergeSort(tempFirstArray, compare), Sorting.mergeSort(tempSecondArray, compare), compare);
         }
         return collection;
     }
@@ -155,6 +154,10 @@ class Sorting {
     }
 
     static compareNumbers(a, b) {
+        if ( typeof Sorting.countOfOperations == 'undefined' ) {
+            Sorting.countOfOperations = 0;
+        }
+        Sorting.countOfOperations++;
         return a > b;
     }
 
@@ -162,6 +165,13 @@ class Sorting {
         return a > b;
     }
 
+    static compareObjectsByName(a, b) {
+        return a.name>b.name;
+    }
+
+    static compareObjectsByRate(a, b) {
+        return a.rate>b.rate;
+    }
     static shuffle(collection) {
         let arraySize = collection.length;
         if (isNaN(arraySize)) return collection;
