@@ -173,7 +173,7 @@ class Sorting {
     }
     static shuffle(collection) {
         let arraySize = collection.length;
-        if (isNaN(arraySize)) return collection;
+        if (arraySize<2) return collection;
         let shift = Math.floor(Math.random() * (arraySize - 1)) + 1;
         for (let i = shift; i < arraySize; i += shift) {
             let temp = collection[i - 1];

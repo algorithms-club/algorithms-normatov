@@ -214,6 +214,11 @@ describe.only('Sorting', function () {
             let shuffleArray = algolib.sort.shuffle(array);
             algolib.sort.isSorted(shuffleArray).should.be.true();
         });
+        it('should return collection of one element if collection length is one', function () {
+            let array = [2];
+            let shuffleArray = algolib.sort.shuffle(array);
+            shuffleArray[0].should.be.eql(array[0]);
+        });
     });
     describe('#stuble algorithms', function () {
         it('MergeSort. Should sort collection of objects. First using string property of object and after integer', function () {
