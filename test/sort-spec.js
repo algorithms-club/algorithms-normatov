@@ -2,7 +2,7 @@
 
 const algolib = require('../index.js');
 
-describe.only('Sorting', function () {
+describe('Sorting', function () {
     describe('#count number of operation in different algorithms', function () {
         it('count operations in insertionSort', function () {
             let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];

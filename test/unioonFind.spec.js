@@ -15,14 +15,14 @@ describe('#unionFind', function () {
         isElementConnected.should.be.false();
     })
 
-    it('#isConnected should return true if elements are connected', function () {
+    it('#isConnected should return true if _elements are connected', function () {
         let uf = new algolib.UnionFind();
         uf.connect(3, 6);
         let isElementConnected = uf.isConnected(3, 6);
         isElementConnected.should.be.eql(true);
     })
 
-    it('#isConnected should return true if 3 elements are connected', function () {
+    it('#isConnected should return true if 3 _elements are connected', function () {
         let uf = new algolib.UnionFind();
         uf.connect(3, 6);
         uf.connect(3, 10);
@@ -54,7 +54,7 @@ describe('#unionFind', function () {
         numberOfComponents.should.be.eql(3);
     })
 
-    it('#component should return component name if component has 2 elements', function () {
+    it('#component should return component name if component has 2 _elements', function () {
         let uf = new algolib.UnionFind();
         uf.connect(1, 2);
         let nameOfComponent = uf.component(1);
@@ -68,7 +68,7 @@ describe('#unionFind', function () {
         (nameOfComponent === undefined).should.be.true()
     })
 
-    it('#component should return component name if component has more than 3 elements', function () {
+    it('#component should return component name if component has more than 3 _elements', function () {
         let uf = new algolib.UnionFind();
         uf.connect(1, 2);
         uf.connect(2, 3);
@@ -77,7 +77,7 @@ describe('#unionFind', function () {
         nameOfComponent.should.be.eql(5);
     })
 
-    it('#component should return component name if component has more than 2 elements', function () {
+    it('#component should return component name if component has more than 2 _elements', function () {
         let uf = new algolib.UnionFind();
         uf.connect(1, 2);
         uf.connect(2, 3);

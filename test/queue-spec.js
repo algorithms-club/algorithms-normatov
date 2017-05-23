@@ -28,7 +28,7 @@ describe('Queue', function () {
             element.should.be.eql(12);
         });
 
-        it('#insert 2 elements to queue', function () {
+        it('#insert 2 _elements to queue', function () {
             let queue = new algolib.queue();
             queue.insert(12);
             queue.insert(13);
@@ -36,7 +36,7 @@ describe('Queue', function () {
             element.should.be.eql(12);
         });
 
-        it('#insert 3 elements to queue', function () {
+        it('#insert 3 _elements to queue', function () {
             let queue = new algolib.queue();
             queue.insert(12);
             queue.insert(13);
@@ -55,7 +55,7 @@ describe('Queue', function () {
             queue.get().should.be.eql(12);
         });
 
-        it('#get() should return two elements from queue', function () {
+        it('#get() should return two _elements from queue', function () {
             let queue = new algolib.queue();
             queue.insert(12);
             queue.insert(13);

@@ -13,6 +13,7 @@ let linkedListArray = require('./methods/LinkedList/LinkedListArray.js');
 let linkedListObject = require('./methods/LinkedList/LinkedListObject.js');
 let stack = require('./methods/stack/Stack.js');
 let queue = require('./methods/queue/Queue.js');
+let binaryHeap = require('./methods/binaryHeap/binaryHeap.js');
 
 let algolib = {
     bubbleSort,
@@ -27,7 +28,8 @@ let algolib = {
     stack,
     queue,
     linkedListObject,
-    quickUnion
+    quickUnion,
+    binaryHeap
 }
 
 module.exports = algolib;

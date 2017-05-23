@@ -4,9 +4,9 @@
 class ElementOfList {
 
     constructor(value, previous) {
-        this.elements = [];
-        this.elements['value'] = value;
-        this.elements['previous'] = previous;
+        this._elements = [];
+        this._elements['value'] = value;
+        this._elements['previous'] = previous;
     }
 
 }
@@ -27,7 +27,7 @@ class LinkedList {
         }
         else {
             elementOfList = new ElementOfList(value, this._lastElement);
-            this._lastElement.elements['next'] = elementOfList;
+            this._lastElement._elements['next'] = elementOfList;
             this._lastElement = elementOfList;
         }
         return true;
@@ -37,8 +37,8 @@ class LinkedList {
         if (!(this._lastElement instanceof ElementOfList)) {
             throw  new Error("List is empty");
         }
-        let element = this._lastElement.elements['value'];
-        this._lastElement = this._lastElement.elements['previous'];
+        let element = this._lastElement._elements['value'];
+        this._lastElement = this._lastElement._elements['previous'];
         return element;
     }
 
@@ -53,8 +53,8 @@ class LinkedList {
             elementOfList = new ElementOfList(value, this._lastElement);
             let secondElement = this._firstElement;
             this._firstElement = elementOfList;
-            secondElement.elements['previous'] = this._firstElement;
-            this._firstElement.elements['next'] = secondElement;
+            secondElement._elements['previous'] = this._firstElement;
+            this._firstElement._elements['next'] = secondElement;
         }
         return true;
     }
@@ -63,8 +63,8 @@ class LinkedList {
         if (!(this._firstElement instanceof ElementOfList)) {
             throw  new Error("List is empty");
         }
-        let element = this._firstElement.elements['value'];
-        this._firstElement = this._firstElement.elements['next'];
+        let element = this._firstElement._elements['value'];
+        this._firstElement = this._firstElement._elements['next'];
         return element;
     }
 }
