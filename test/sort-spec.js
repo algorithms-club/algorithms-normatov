@@ -181,6 +181,25 @@ describe('Sorting', function () {
             sortArray.should.be.eql([1, 2, 3]);
         });
     });
+
+    describe('#heapSort', function () {
+        it('should sort collection of numbers', function () {
+            let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
+            let sortArray = algolib.sort.heapSort(array);
+            sortArray.should.be.eql([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
+        });
+        it('should return empty collection when empty collection was passed', function () {
+            let array = [];
+            let sortArray = algolib.sort.heapSort(array);
+            sortArray.should.be.eql([]);
+        });
+        it('should return sorted collection if sorted collection was passed', function () {
+            let array = [1, 2, 3];
+            let sortArray = algolib.sort.heapSort(array);
+            sortArray.should.be.eql([3, 2, 1]);
+        });
+    });
+
     describe('#isSorted', function () {
         it('should return true if collection is sorted', function () {
             let array = [1, 2, 3];

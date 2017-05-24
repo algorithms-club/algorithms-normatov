@@ -1,5 +1,5 @@
 'use strict';
-
+const binaryHeap = require('../binaryHeap/binaryHeap');
 class Sorting {
     static mergeSort(collection, compare) {
         let arraySize = collection.length;
@@ -153,7 +153,7 @@ class Sorting {
     }
 
     static compareNumbers(a, b) {
-        if ( typeof Sorting.countOfOperations == 'undefined' ) {
+        if (typeof Sorting.countOfOperations == 'undefined') {
             Sorting.countOfOperations = 0;
         }
         Sorting.countOfOperations++;
@@ -165,15 +165,16 @@ class Sorting {
     }
 
     static compareObjectsByName(a, b) {
-        return a.name>b.name;
+        return a.name > b.name;
     }
 
     static compareObjectsByRate(a, b) {
-        return a.rate>b.rate;
+        return a.rate > b.rate;
     }
+
     static shuffle(collection) {
         let arraySize = collection.length;
-        if (arraySize<2) return collection;
+        if (arraySize < 2) return collection;
         let shift = Math.floor(Math.random() * (arraySize - 1)) + 1;
         for (let i = shift; i < arraySize; i += shift) {
             let temp = collection[i - 1];
@@ -191,5 +192,16 @@ class Sorting {
         }
         return true;
     }
+
+    static heapSort(collection) {
+        let array = new binaryHeap();
+        array.concat(collection);
+        array._rebuildThree();
+        for (let i = 0; i < collection.length; i++) {
+            collection[i] = array.getRoot()
+        }
+        return collection;
+    }
+
 }
 module.exports = Sorting;

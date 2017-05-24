@@ -8,7 +8,8 @@ class BinaryHeap {
 
     push(value) {
         this._elements.push(value);
-        this._rebuildThree(0);
+        let arraySize = this._elements.length;
+        this._addElementToThree(arraySize - 1);
         return true;
     }
 
@@ -21,24 +22,34 @@ class BinaryHeap {
         this._elements = this._elements.concat(array);
     }
 
-    _rebuildThree(index) {
-
-        let size = this._elements.length;
-
-        if (index * 2 + 1 < size && this._elements[index * 2 + 1]>this._elements[index]) {
-            this._rebuildThree(index * 2 + 1);
-            this._change(index * 2 + 1, index);
+    _addElementToThree(index) {
+        if (index == 0) return;
+        let parentIndex = Math.floor((index - 1) / 2);
+        if (this._elements[parentIndex] < this._elements[index]) {
+            this._change(parentIndex, index);
+            this._addElementToThree(parentIndex);
         }
-        if (index * 2 + 1 < size && this._elements[index * 2 + 1]>this._elements[index]) {
-            this._rebuildThree(index * 2 + 2);
-            this._change(index * 2 + 2, index);
+    }
+
+    _rebuildThree() {
+        for(let i=this._elements.length-1;i>=0;i--){
+            this._addElementToThree(i);
         }
     }
 
     _change(indexOne, indexTwo) {
-            let temp = this._elements[indexOne];
-            this._elements[indexOne] = this._elements[indexTwo];
-            this._elements[indexTwo] = temp;
+        let temp = this._elements[indexOne];
+        this._elements[indexOne] = this._elements[indexTwo];
+        this._elements[indexTwo] = temp;
+    }
+
+    getRoot() {
+        if (this._elements.length==0) {
+            throw  new Error("List is empty");
+        }
+        let root = this._elements.shift();
+        this._rebuildThree();
+        return root;
     }
 
 }
