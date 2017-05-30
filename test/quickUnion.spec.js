@@ -18,20 +18,20 @@ describe('#quikUnion', function () {
         isElementConnected.should.be.false();
     })
 
-    it('#isConnected should return true if 2 elements are connected', function () {
+    it('#isConnected should return true if 2 _elements are connected', function () {
         let qu = new algolib.quickUnion();
         qu.connect(3, 5);
         let isElementConnected = qu.isConnected(3, 5);
         isElementConnected.should.be.eql(true);
     })
-    it('#isConnected should return true if 3 elements are connected', function () {
+    it('#isConnected should return true if 3 _elements are connected', function () {
         let qu = new algolib.quickUnion();
         qu.connect(3, 5);
         qu.connect(3, 1);
         let isElementConnected = qu.isConnected(1, 5);
         isElementConnected.should.be.eql(true);
     })
-    it('#isConnected should return true if 5 elements are connected', function () {
+    it('#isConnected should return true if 5 _elements are connected', function () {
         let qu = new algolib.quickUnion();
         qu.connect(3, 5);
         qu.connect(3, 1);
@@ -64,7 +64,7 @@ describe('#quikUnion', function () {
         numberOfComponents.should.be.eql(3);
     })
 
-    it('#component should return component name if component has 2 elements', function () {
+    it('#component should return component name if component has 2 _elements', function () {
         let qu = new algolib.quickUnion();
         qu.connect(2, 1);
         let nameOfComponent = qu.component(1);
@@ -78,7 +78,7 @@ describe('#quikUnion', function () {
         (nameOfComponent === undefined).should.be.true()
     })
 
-    it('#component should return component name if component has more than 3 elements', function () {
+    it('#component should return component name if component has more than 3 _elements', function () {
         let qu = new algolib.quickUnion();
         qu.connect(1, 2);
         qu.connect(2, 3);
@@ -87,7 +87,7 @@ describe('#quikUnion', function () {
         nameOfComponent.should.be.eql(5);
     })
 
-    it('#component should return component name if component has more than 2 elements', function () {
+    it('#component should return component name if component has more than 2 _elements', function () {
         let qu = new algolib.quickUnion();
         qu.connect(1, 2);
         qu.connect(2, 3);

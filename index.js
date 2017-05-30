@@ -8,10 +8,13 @@ let watermelon = require('./methods/watermelon/watermelon.js');
 let beautifulyear = require('./methods/beautifulyear/beautifulyear.js');
 let stones = require('./methods/stones/stones.js');
 let chat = require('./methods/chat/chat.js');
+let sort = require('./methods/sorting/Sort');
 let linkedListArray = require('./methods/LinkedList/LinkedListArray.js');
 let linkedListObject = require('./methods/LinkedList/LinkedListObject.js');
 let stack = require('./methods/stack/Stack.js');
 let queue = require('./methods/queue/Queue.js');
+let binaryHeap = require('./methods/binaryHeap/binaryHeap.js');
+let priorityQueue = require('./methods/priorityQueue/priorityQueue.js');
 
 let algolib = {
     bubbleSort,
@@ -21,11 +24,14 @@ let algolib = {
     beautifulyear,
     stones,
     chat,
+    sort,
     linkedListArray,
     stack,
     queue,
     linkedListObject,
-    quickUnion
+    quickUnion,
+    binaryHeap,
+    priorityQueue
 }
 
 module.exports = algolib;

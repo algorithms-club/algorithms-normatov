@@ -30,7 +30,7 @@ describe('LinkedListArray', function () {
             element.should.be.eql(12);
         });
 
-        it('#push 2 elements to list', function () {
+        it('#push 2 _elements to list', function () {
             let list = new algolib.linkedListArray();
             list.push(12);
             list.push(13);
@@ -38,7 +38,7 @@ describe('LinkedListArray', function () {
             element.should.be.eql(13);
         });
 
-        it('#push 3 elements to list', function () {
+        it('#push 3 _elements to list', function () {
             let list = new algolib.linkedListArray();
             list.push(12);
             list.push(13);
@@ -56,7 +56,7 @@ describe('LinkedListArray', function () {
             assert.throws(list.pop, Error, 'List is empty');
         });
 
-        it('#pop 2 elements from list', function () {
+        it('#pop 2 _elements from list', function () {
             let list = new algolib.linkedListArray();
             list.push(12);
             list.push(13);
@@ -66,7 +66,7 @@ describe('LinkedListArray', function () {
             element.should.be.eql(13);
         });
 
-        it('#pop all elements from list', function () {
+        it('#pop all _elements from list', function () {
             let list = new algolib.linkedListArray();
             list.push(12);
             list.push(13);
@@ -90,7 +90,7 @@ describe('LinkedListArray', function () {
             list.push(12).should.true();
         });
 
-        it('#shift 3 elements to list', function () {
+        it('#shift 3 _elements to list', function () {
             let list = new algolib.linkedListArray();
             list.shift(12);
             list.shift(13);
@@ -100,7 +100,7 @@ describe('LinkedListArray', function () {
             list.pop().should.be.eql(14);
         });
 
-        it('#unshift 3 elements from list', function () {
+        it('#unshift 3 _elements from list', function () {
             let list = new algolib.linkedListArray();
             list.shift(12);
             list.shift(13);
@@ -114,7 +114,7 @@ describe('LinkedListArray', function () {
 
     describe('#all methods together', function () {
 
-        it('#push 3 elements and unshift 3 elements from the list', function () {
+        it('#push 3 _elements and unshift 3 _elements from the list', function () {
             let list = new algolib.linkedListArray();
             list.push(12);
             list.push(13);
@@ -124,7 +124,7 @@ describe('LinkedListArray', function () {
             list.unshift().should.be.eql(14);
         });
 
-        it('#shift 3 elements and pop 3 elements from the list', function () {
+        it('#shift 3 _elements and pop 3 _elements from the list', function () {
             let list = new algolib.linkedListArray();
             list.shift(12);
             list.shift(13);

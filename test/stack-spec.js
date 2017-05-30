@@ -28,7 +28,7 @@ describe('Stack', function () {
             element.should.be.eql(12);
         });
 
-        it('#insert 2 elements to stack', function () {
+        it('#insert 2 _elements to stack', function () {
             let stack = new algolib.stack();
             stack.insert(12);
             stack.insert(13);
@@ -36,7 +36,7 @@ describe('Stack', function () {
             element.should.be.eql(13);
         });
 
-        it('#insert 3 elements to stack', function () {
+        it('#insert 3 _elements to stack', function () {
             let stack = new algolib.stack();
             stack.insert(12);
             stack.insert(13);
@@ -55,7 +55,7 @@ describe('Stack', function () {
             stack.get().should.be.eql(12);
         });
 
-        it('#get() should return two elements from stack', function () {
+        it('#get() should return two _elements from stack', function () {
             let stack = new algolib.stack();
             stack.insert(12);
             stack.insert(13);
