@@ -1,6 +1,7 @@
 'use strict';
 const binaryHeap = require('../binaryHeap/binaryHeap');
 class Sorting {
+
     static mergeSort(collection, compare) {
         let arraySize = collection.length;
         if (arraySize < 2) return collection;
@@ -45,34 +46,72 @@ class Sorting {
         return resultCollection;
     }
 
+    /*    static quickSort(collection, compare) {
+     let tempArrayBeforePivot = [];
+     let tempArrayAfterPivot = [];
+     let arraySize = collection.length;
+     if (arraySize < 2) return collection;
+     if (arraySize == 2) {
+     if (compare(collection[0], collection[1])) {
+     let temp = collection[0];
+     collection[0] = collection[1];
+     collection[1] = temp;
+     }
+     }
+     else {
+     let pivotIndex = Math.floor(Math.random() * (arraySize - 2)) + 1;
+     for (let i = 0; i < arraySize; i++) {
+     if (i != pivotIndex) {
+     if (!compare(collection[i], collection[pivotIndex])) {
+     tempArrayBeforePivot.push(collection[i]);
+     }
+     else tempArrayAfterPivot.push(collection[i]);
+     }
+     }
+     tempArrayBeforePivot = Sorting.quickSort(tempArrayBeforePivot, compare);
+     tempArrayAfterPivot = Sorting.quickSort(tempArrayAfterPivot, compare);
+     tempArrayBeforePivot.push(collection[pivotIndex]);
+     collection = (tempArrayBeforePivot).concat(tempArrayAfterPivot);
+     }
+     return collection;
+     }*/
+
     static quickSort(collection, compare) {
-        let tempArrayBeforePivot = [];
-        let tempArrayAfterPivot = [];
-        let arraySize = collection.length;
-        if (arraySize < 2) return collection;
-        if (arraySize == 2) {
-            if (compare(collection[0], collection[1])) {
-                let temp = collection[0];
-                collection[0] = collection[1];
-                collection[1] = temp;
-            }
-        }
-        else {
-            let pivotIndex = Math.floor(Math.random() * (arraySize - 2)) + 1;
-            for (let i = 0; i < arraySize; i++) {
-                if (i != pivotIndex) {
-                    if (!compare(collection[i], collection[pivotIndex])) {
-                        tempArrayBeforePivot.push(collection[i]);
-                    }
-                    else tempArrayAfterPivot.push(collection[i]);
-                }
-            }
-            tempArrayBeforePivot = Sorting.quickSort(tempArrayBeforePivot, compare);
-            tempArrayAfterPivot = Sorting.quickSort(tempArrayAfterPivot, compare);
-            tempArrayBeforePivot.push(collection[pivotIndex]);
-            collection = (tempArrayBeforePivot).concat(tempArrayAfterPivot);
+        if (collection.length < 2) return collection;
+        Sorting.quickSortAlgo(collection, 0, collection.length - 1);
+        return collection;
+    }
+
+
+    static quickSortAlgo(collection, lo, hi) {
+        if (hi > lo) {
+            let pivotIndex = Sorting.makePartSorted(collection, lo, hi);
+            Sorting.quickSortAlgo(collection, lo, pivotIndex);
+            Sorting.quickSortAlgo(collection, pivotIndex+1, hi);
         }
         return collection;
+    }
+
+    static  makePartSorted(collection,lo, hi) {
+        let pivot = collection[Math.round(Math.random() * (hi - lo) + lo)];
+        let i = lo;
+        let j = hi;
+        while (i < j) {
+            while (pivot > collection[i]) {
+                i++;
+            }
+            while (pivot < collection[j]) {
+                j--;
+            }
+            if (i < j) {
+                let temp = collection[i];
+                collection[i] = collection[j];
+                collection[j] = temp;
+                i++;
+                j--;
+            }
+        }
+        return j;
     }
 
     static insertionSort(collection, compare) {
@@ -91,7 +130,8 @@ class Sorting {
         return collection;
     }
 
-    static shellSort(collection, compare) {
+    static
+    shellSort(collection, compare) {
         let arraySize = collection.length;
         let gapArray = [];
         let elementInGap = 0;
@@ -119,7 +159,8 @@ class Sorting {
         return collection;
     }
 
-    static selectionSort(collection, compare) {
+    static
+    selectionSort(collection, compare) {
         let arraySize = collection.length;
         for (let i = 0; i < arraySize; i++) {
             let minElement = collection[i];
@@ -136,7 +177,8 @@ class Sorting {
         return collection;
     }
 
-    static everythingSort(collection, compare) {
+    static
+    everythingSort(collection, compare) {
         let arraySize = collection.length;
         let valueMinElement;
         for (let i = 1; i < arraySize; i++) {
@@ -152,7 +194,8 @@ class Sorting {
         return collection;
     }
 
-    static compareNumbers(a, b) {
+    static
+    compareNumbers(a, b) {
         if (typeof Sorting.countOfOperations == 'undefined') {
             Sorting.countOfOperations = 0;
         }
@@ -160,19 +203,23 @@ class Sorting {
         return a > b;
     }
 
-    static compareLetters(a, b) {
+    static
+    compareLetters(a, b) {
         return a > b;
     }
 
-    static compareObjectsByName(a, b) {
+    static
+    compareObjectsByName(a, b) {
         return a.name > b.name;
     }
 
-    static compareObjectsByRate(a, b) {
+    static
+    compareObjectsByRate(a, b) {
         return a.rate > b.rate;
     }
 
-    static shuffle(collection) {
+    static
+    shuffle(collection) {
         let arraySize = collection.length;
         if (arraySize < 2) return collection;
         let shift = Math.floor(Math.random() * (arraySize - 1)) + 1;
@@ -184,7 +231,8 @@ class Sorting {
         return collection;
     }
 
-    static  isSorted(collection, compare) {
+    static
+    isSorted(collection, compare) {
         let arraySize = collection.length;
         if (isNaN(arraySize)) return true;
         for (let i = 1; i < arraySize; i++) {
@@ -193,7 +241,8 @@ class Sorting {
         return true;
     }
 
-    static heapSort(collection) {
+    static
+    heapSort(collection) {
         let array = new binaryHeap();
         array.concat(collection);
         array._rebuildThree();
@@ -204,4 +253,6 @@ class Sorting {
     }
 
 }
-module.exports = Sorting;
+
+module
+    .exports = Sorting;
