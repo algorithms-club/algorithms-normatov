@@ -245,7 +245,7 @@ class Sorting {
     heapSort(collection) {
         let array = new binaryHeap();
         array.concat(collection);
-        array._rebuildThree();
+        array._rebuildTree();
         for (let i = 0; i < collection.length; i++) {
             collection[i] = array.getRoot()
         }
