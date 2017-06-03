@@ -6,28 +6,28 @@ var assert = require('assert');
 describe('BinaryHeap', function () {
     describe('#data structure', function () {
         it('#should create proper data structure', function () {
-            let heap = new algolib.binaryHeap();
+            let heap = new algolib.BinaryHeap();
             heap.push.should.be.instanceOf(Function);
-            heap._addElementToThree.should.be.instanceOf(Function);
-            heap._rebuildThree.should.be.instanceOf(Function);
+            heap._upElementToRoot.should.be.instanceOf(Function);
+            heap._rebuildTree.should.be.instanceOf(Function);
             heap.getRoot.should.be.instanceOf(Function);
         });
     });
     it('add two elements to binary heap', function () {
-        let heap = new algolib.binaryHeap();
+        let heap = new algolib.BinaryHeap();
         heap.push(10);
         heap.push(11);
         heap.getHeap().should.be.eql([11, 10]);
     });
     it('add three elements to binary heap', function () {
-        let heap = new algolib.binaryHeap();
+        let heap = new algolib.BinaryHeap();
         heap.push(10);
         heap.push(11);
         heap.push(1);
         heap.getHeap().should.be.eql([11, 10, 1]);
     });
     it('add ten elements to binary heap', function () {
-        let heap = new algolib.binaryHeap();
+        let heap = new algolib.BinaryHeap();
         heap.push(1);
         heap.push(2);
         heap.push(4);
@@ -41,16 +41,16 @@ describe('BinaryHeap', function () {
         heap.getHeap().should.be.eql([16, 11, 8, 9, 10, 2, 6, 1, 5, 4]);
     });
     it('rebuild array to binary heap', function () {
-        let heap = new algolib.binaryHeap();
+        let heap = new algolib.BinaryHeap();
         let arrayToHeap = [1, 2, 4, 5, 6, 8, 11, 9, 16, 10];
         heap.concat(arrayToHeap);
         for(let i=arrayToHeap.length-1;i>=0;i--){
-        heap._addElementToThree(i);
+        heap._upElementToRoot(i);
         }
         heap.getHeap().should.be.eql([16, 10, 11, 9, 2, 8, 4, 1, 5, 6]);
     });
     it('get root of binary heap', function () {
-        let heap = new algolib.binaryHeap();
+        let heap = new algolib.BinaryHeap();
         heap.push(1);
         heap.push(2);
         heap.push(4);

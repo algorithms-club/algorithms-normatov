@@ -13,7 +13,7 @@ let linkedListArray = require('./methods/LinkedList/LinkedListArray.js');
 let linkedListObject = require('./methods/LinkedList/LinkedListObject.js');
 let stack = require('./methods/stack/Stack.js');
 let queue = require('./methods/queue/Queue.js');
-let binaryHeap = require('./methods/binaryHeap/binaryHeap.js');
+let BinaryHeap = require('./methods/binaryHeap/binaryHeap.js');
 let priorityQueue = require('./methods/priorityQueue/priorityQueue.js');
 
 let algolib = {
@@ -30,7 +30,7 @@ let algolib = {
     queue,
     linkedListObject,
     quickUnion,
-    binaryHeap,
+    BinaryHeap,
     priorityQueue
 }
 

@@ -9,7 +9,7 @@ class BinaryHeap {
     push(value) {
         this._elements.push(value);
         let arraySize = this._elements.length;
-        this._addElementToThree(arraySize - 1);
+        this._upElementToRoot(arraySize - 1);
         return true;
     }
 
@@ -22,18 +22,18 @@ class BinaryHeap {
         this._elements = this._elements.concat(array);
     }
 
-    _addElementToThree(index) {
+    _upElementToRoot(index) {
         if (index == 0) return;
         let parentIndex = Math.floor((index - 1) / 2);
         if (this._elements[parentIndex] < this._elements[index]) {
             this._change(parentIndex, index);
-            this._addElementToThree(parentIndex);
+            this._upElementToRoot(parentIndex);
         }
     }
 
-    _rebuildThree() {
+    _rebuildTree() {
         for(let i=this._elements.length-1;i>=0;i--){
-            this._addElementToThree(i);
+            this._upElementToRoot(i);
         }
     }
 
@@ -48,7 +48,7 @@ class BinaryHeap {
             throw  new Error("List is empty");
         }
         let root = this._elements.shift();
-        this._rebuildThree();
+        this._rebuildTree();
         return root;
     }
 

@@ -1,5 +1,5 @@
 'use strict';
-const binaryHeap = require('../binaryHeap/binaryHeap');
+const BinaryHeap = require('../binaryHeap/binaryHeap');
 class Sorting {
     static mergeSort(collection, compare) {
         let arraySize = collection.length;
@@ -194,9 +194,9 @@ class Sorting {
     }
 
     static heapSort(collection) {
-        let array = new binaryHeap();
+        let array = new BinaryHeap();
         array.concat(collection);
-        array._rebuildThree();
+        array._rebuildTree();
         for (let i = 0; i < collection.length; i++) {
             collection[i] = array.getRoot()
         }
