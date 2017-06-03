@@ -95,7 +95,7 @@ describe('Sorting', function () {
     describe('#quickSort', function () {
 
         it('should sort collection of numbers', function () {
-            let array = [6, 4, 2, 1, 1, 3, 5];
+            let array = [4, 2, 1, 6, 1, 3, 5];
             let sortArray = algolib.sort.quickSort(array, algolib.sort.compareNumbers);
             sortArray.should.be.eql([1, 1, 2, 3, 4, 5, 6]);
         });
