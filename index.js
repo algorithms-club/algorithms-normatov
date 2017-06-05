@@ -15,6 +15,7 @@ let stack = require('./methods/stack/Stack.js');
 let queue = require('./methods/queue/Queue.js');
 let BinaryHeap = require('./methods/binaryHeap/binaryHeap.js');
 let priorityQueue = require('./methods/priorityQueue/priorityQueue.js');
+let BinarySearchTree = require('./methods/binarySearchTree/BinarySearchTree');
 
 let algolib = {
     bubbleSort,
@@ -31,7 +32,8 @@ let algolib = {
     linkedListObject,
     quickUnion,
     BinaryHeap,
-    priorityQueue
+    priorityQueue,
+    BinarySearchTree
 }
 
 module.exports = algolib;
