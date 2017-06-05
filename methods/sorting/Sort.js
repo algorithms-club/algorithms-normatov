@@ -78,28 +78,28 @@ class Sorting {
 
     static quickSort(collection, compare) {
         if (collection.length < 2) return collection;
-        Sorting.quickSortAlgo(collection, 0, collection.length - 1);
+        Sorting.quickSortAlgo(collection, 0, collection.length - 1, compare);
         return collection;
     }
 
 
-    static quickSortAlgo(collection, lo, hi) {
+    static quickSortAlgo(collection, lo, hi, compare) {
         if (hi > lo) {
-            let pivotIndex = Sorting.makePartSorted(collection, lo, hi);
-            Sorting.quickSortAlgo(collection, lo, pivotIndex);
-            Sorting.quickSortAlgo(collection, pivotIndex + 1, hi);
+            let pivotIndex = Sorting.makePartSorted(collection, lo, hi, compare);
+            Sorting.quickSortAlgo(collection, lo, pivotIndex, compare);
+            Sorting.quickSortAlgo(collection, pivotIndex + 1, hi, compare);
         }
         return collection;
     }
 
     static _generatePivotIndex(lo, hi) {
         // let pivot = Math.floor(Math.random() * (hi - lo + 1) + lo);
-        let pivot = Math.floor((hi+ lo)/2);
+        let pivot = Math.floor((hi + lo) / 2);
         // console.log('pivot='+pivot+' lo='+lo+' hi='+hi);
         return pivot;
     }
 
-    static  makePartSorted(collection, lo, hi) {
+    static  makePartSorted(collection, lo, hi, compare) {
         let pivotIndex = Sorting._generatePivotIndex(lo, hi);
         let pivot = collection[pivotIndex];
         let i = lo;
@@ -111,7 +111,7 @@ class Sorting {
             while (pivot < collection[j]) {
                 j--;
             }
-            if (i < j) {
+            if (compare(j,i)) {
                 let temp = collection[i];
                 collection[i] = collection[j];
                 collection[j] = temp;

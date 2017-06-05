@@ -5,6 +5,7 @@ const algolib = require('../index.js');
 describe('Sorting', function () {
     describe('#count number of operation in different algorithms', function () {
         it('count operations in insertionSort', function () {
+            algolib.sort.countOfOperations = 0;
             let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
             let sortArray = algolib.sort.insertionSort(array, algolib.sort.compareNumbers);
             sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -12,6 +13,7 @@ describe('Sorting', function () {
             algolib.sort.countOfOperations = 0;
         });
         it('count operations in everythingSort', function () {
+            algolib.sort.countOfOperations = 0;
             let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
             let sortArray = algolib.sort.everythingSort(array, algolib.sort.compareNumbers);
             sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -19,6 +21,7 @@ describe('Sorting', function () {
             algolib.sort.countOfOperations = 0;
         });
         it('count operations in selectionSort', function () {
+            algolib.sort.countOfOperations = 0;
             let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
             let sortArray = algolib.sort.selectionSort(array, algolib.sort.compareNumbers);
             sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -26,6 +29,7 @@ describe('Sorting', function () {
             algolib.sort.countOfOperations = 0;
         });
         it('count operations in mergeSort', function () {
+            algolib.sort.countOfOperations = 0;
             let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
             let sortArray = algolib.sort.mergeSort(array, algolib.sort.compareNumbers);
             sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -33,6 +37,7 @@ describe('Sorting', function () {
             algolib.sort.countOfOperations = 0;
         });
         it('count operations in shellSort', function () {
+            algolib.sort.countOfOperations = 0;
             let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
             let sortArray = algolib.sort.shellSort(array, algolib.sort.compareNumbers);
             sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -40,6 +45,7 @@ describe('Sorting', function () {
             algolib.sort.countOfOperations = 0;
         });
         it('count operations in quickSort', function () {
+            algolib.sort.countOfOperations = 0;
             let array = [2, 1, 6, 3, 5, 4, 7, 10, 8, 9];
             let sortArray = algolib.sort.quickSort(array, algolib.sort.compareNumbers);
             sortArray.should.be.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
