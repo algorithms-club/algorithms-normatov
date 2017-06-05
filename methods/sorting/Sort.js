@@ -87,13 +87,21 @@ class Sorting {
         if (hi > lo) {
             let pivotIndex = Sorting.makePartSorted(collection, lo, hi);
             Sorting.quickSortAlgo(collection, lo, pivotIndex);
-            Sorting.quickSortAlgo(collection, pivotIndex+1, hi);
+            Sorting.quickSortAlgo(collection, pivotIndex + 1, hi);
         }
         return collection;
     }
 
-    static  makePartSorted(collection,lo, hi) {
-        let pivot = collection[Math.round(Math.random() * (hi - lo) + lo)];
+    static _generatePivotIndex(lo, hi) {
+        // let pivot = Math.floor(Math.random() * (hi - lo + 1) + lo);
+        let pivot = Math.floor((hi+ lo)/2);
+        console.log('pivot='+pivot+' lo='+lo+' hi='+hi);
+        return pivot;
+    }
+
+    static  makePartSorted(collection, lo, hi) {
+        let pivotIndex = Sorting._generatePivotIndex(lo, hi);
+        let pivot = collection[pivotIndex];
         let i = lo;
         let j = hi;
         while (i < j) {
