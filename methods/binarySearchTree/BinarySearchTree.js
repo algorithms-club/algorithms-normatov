@@ -12,7 +12,7 @@ class BinarySearchTree {
     }
 
     push(value) {
-        if(value==this._element.value) return;
+        if (value == this._element.value) return;
         if (this._element.value === undefined && this._element.left == 'undefined' && this._element.right == 'undefined') {
             this._element.count++;
             this._element.value = value;
@@ -66,6 +66,13 @@ class BinarySearchTree {
 
     getCount() {
         return this._element.count;
+    }
+
+    getNode(value) {
+        if (this._element.value == value) return this;
+        if (value > this._element.value && this._element.right != 'undefined') return this._element.right.getNode(value);
+        if (value < this._element.value && this._element.left != 'undefined') return this._element.left.getNode(value);
+        return false;
     }
 
 }

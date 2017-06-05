@@ -88,4 +88,20 @@ describe.only('BinarySearchTree', function () {
             bs.getCount().should.eql(5);
         });
     });
+    describe('#getNode function', function () {
+        it('#should return node, with specific value', function () {
+            let bs = new algolib.BinarySearchTree();
+            bs.push(2);
+            bs.push(1);
+            bs.push(3);
+            bs.getNode(3)._element.value.should.eql(3);
+            bs.getNode(1)._element.value.should.eql(1);
+            bs.getNode(2)._element.value.should.eql(2);
+        });
+        it('#should return false if node, with specific value does not exist', function () {
+            let bs = new algolib.BinarySearchTree();
+            bs.push(2);
+            bs.getNode(7).should.false();
+        });
+    });
 });
