@@ -95,7 +95,7 @@ class Sorting {
     static _generatePivotIndex(lo, hi) {
         // let pivot = Math.floor(Math.random() * (hi - lo + 1) + lo);
         let pivot = Math.floor((hi+ lo)/2);
-        console.log('pivot='+pivot+' lo='+lo+' hi='+hi);
+        // console.log('pivot='+pivot+' lo='+lo+' hi='+hi);
         return pivot;
     }
 
