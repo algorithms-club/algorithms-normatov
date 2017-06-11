@@ -112,6 +112,23 @@ describe('LinkedListObject', function () {
 
     });
 
+
+    describe.only('#get(value)', function () {
+        it('#get should return false, if list does not have element with value', function () {
+            let list = new algolib.linkedListObject();
+            list.get(5).should.false();
+            list.push(12).should.true();
+            list.get(5).should.false();
+        });
+        it('#get should return element, if list have element with value', function () {
+            let list = new algolib.linkedListObject();
+            list.push(12).should.true();
+            list.push(13).should.true();
+            list.push(14).should.true();
+            list.get(14).value.should.equal(14);
+        });
+    });
+
     describe('#all methods together', function () {
 
         it('#push 3 _elements and unshift 3 _elements from the list', function () {

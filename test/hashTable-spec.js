@@ -27,7 +27,7 @@ describe('HashTable', function () {
 
     });
 
-    describe.only('#get(key)', function () {
+    describe('#get(key)', function () {
         it('#get value from the hash table using values key', function () {
             let hashTable = new algolib.HashTable;
             hashTable.add('Vasya','12');
