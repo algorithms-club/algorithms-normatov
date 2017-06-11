@@ -24,8 +24,8 @@ class LinkedListObject {
     }
 
 
-    get(value) {
-        if(this._firstElement==undefined) return false;
+    getNode(value) {
+        if (this._firstElement == undefined) return false;
         if (this._firstElement._element.value == value) return this._firstElement._element;
         else if (this._firstElement._element.next != 'undefined') {
             return this._firstElement._element.next._find(value);

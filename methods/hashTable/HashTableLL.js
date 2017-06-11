@@ -2,7 +2,7 @@
 let LinkedList = require('../LinkedList/LinkedListObject');
 
 
-class HashTable {
+class HashTableLL {
 
     constructor() {
         this._elemets = [];
@@ -11,38 +11,31 @@ class HashTable {
 
     add(key, value) {
         if (key == '' || value == '') return false;
-        let index = key.hashCode();
-        if (this._elemets[index] = undefined) {
+        let index = HashTableLL.hashCode(0, 1);
+        if (this._elemets[index] == undefined) {
             this._elemets[index] = new LinkedList();
             this._elemets[index].push(value);
         }
-        else this._elemets[index].push(value);
+        else {
+            this._elemets[index].push(value);
+        }
         return true;
     }
 
-    get(key) {
-        let index = key.hashCode();
+    get(key,value) {
+        let index = HashTableLL.hashCode(0, 1);
         if (this._elemets[index] != undefined) {
-            while (this._elemets[index]._elemets.next!='undefined'){
-
-
-            }
-            return this._elemets[index].get()
+            return this._elemets[index].getNode(value)?this._elemets[index].getNode(value).value:false;
         }
         else return false;
     }
 
+
+    static hashCode(start, end) {
+        let hash = Math.floor(Math.random() * end) + start;
+        return hash;
+    }
 }
 
-String.prototype.hashCode = function () {
-    var hash = 0, i, chr;
-    if (this.length === 0) return hash;
-    for (i = 0; i < this.length; i++) {
-        chr = this.charCodeAt(i);
-        hash = ((hash << 5) - hash) + chr;
-        hash |= 0;
-    }
-    return hash;
-};
 
-module.exports = HashTable;
+module.exports = HashTableLL;
