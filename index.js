@@ -17,6 +17,8 @@ let BinaryHeap = require('./methods/binaryHeap/binaryHeap.js');
 let priorityQueue = require('./methods/priorityQueue/priorityQueue.js');
 let HashTable = require('./methods/hashTable/HashTable');
 let HashTableLL = require('./methods/hashTable/HashTableLL');
+let BinarySearchTree = require('./methods/binarySearchTree/BinarySearchTree');
+
 
 let algolib = {
     bubbleSort,
@@ -35,7 +37,8 @@ let algolib = {
     BinaryHeap,
     priorityQueue,
     HashTable,
-    HashTableLL
+    HashTableLL,
+    BinarySearchTree
 }
 
 module.exports = algolib;
