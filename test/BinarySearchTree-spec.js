@@ -3,7 +3,7 @@
 const algolib = require('../index.js');
 var assert = require('assert');
 
-describe.only('BinarySearchTree', function () {
+describe('BinarySearchTree', function () {
     describe('#data structure', function () {
         it('#should create proper data structure', function () {
             let bs = new algolib.BinarySearchTree();
