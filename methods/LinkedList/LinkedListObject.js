@@ -12,9 +12,30 @@ class LinkedListObject {
         };
     }
 
+    _find(value) {
+
+        if (this._element.value == value) {
+            return this._element;
+        }
+        else if (this._element.next != 'undefined') {
+            return this._element.next._find(value);
+        }
+        return false;
+    }
+
+
+    getNode(value) {
+        if (this._firstElement == undefined) return false;
+        if (this._firstElement._element.value == value) return this._firstElement._element;
+        else if (this._firstElement._element.next != 'undefined') {
+            return this._firstElement._element.next._find(value);
+        }
+        return false;
+    }
+
     push(value) {
         let elementOfList;
-        if (this._firstElement=== undefined) {
+        if (this._firstElement === undefined) {
             elementOfList = new LinkedListObject(value, value);
             this._firstElement = elementOfList;
             this._lastElement = elementOfList;
@@ -28,7 +49,7 @@ class LinkedListObject {
     }
 
     pop() {
-        if (this._lastElement=== undefined) {
+        if (this._lastElement === undefined) {
             return false;
         }
         let element = this._lastElement._element.value;
@@ -54,7 +75,7 @@ class LinkedListObject {
     }
 
     unshift() {
-        if (this._firstElement=== undefined) {
+        if (this._firstElement === undefined) {
             return false;
         }
         let element = this._firstElement._element.value;
