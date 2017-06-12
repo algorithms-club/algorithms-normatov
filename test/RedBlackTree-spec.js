@@ -13,11 +13,21 @@ describe('RedBlackTree', function () {
             rbt.getMax.should.be.instanceOf(Function);
             rbt._leftRotate.should.be.instanceOf(Function);
             rbt._rightRotate.should.be.instanceOf(Function);
+            rbt.flipColors.should.be.instanceOf(Function);
         });
     });
-    describe('#_leftRotate(element) function', function () {
+    describe.only('#push function', function () {
         it('#should push one element to tree', function () {
             let rbt = new algolib.RedBlackTree();
+            rbt.push(10);
+            rbt.getMin().should.eql(10);
+            rbt.push(11);
+            rbt.getMin().should.eql(10);
+            rbt.getMax().should.eql(11);
+            rbt.push(12);
+            rbt.getMax().should.eql(12);
+            rbt.push(13);
+            rbt.getMax().should.eql(13);
         });
     });
 });
