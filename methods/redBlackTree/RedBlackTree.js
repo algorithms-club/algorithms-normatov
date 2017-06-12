@@ -15,27 +15,34 @@ class RedBlackTree {
     }
 
     _leftRotate(element) {
-        if (element.right == undefined) return;
-        let x = element;
-        let y = element.right;
-        y = x.right;
-        x.right = y.left;
-        if (y.left != undefined) {
-            y.left.parent = x;
-            y.parent = x.parent;
+        element.right = element.right.left;
+        if (element.right.left != undefined) {
+            element.right.left.parent = element;
         }
-        if (x.parent == undefined)
-            this._root = y;
-        else if (x == x.parent.left) x.parent.left = y;
+        element.right.parent = element.parent;
+        if (element == element.parent.left) element.parent.left = element.right;
         else {
-            x.parent.right = y;
-            y.left = x;
+            element.parent.right = element.right;
         }
-        x.parent = y;
+        element.right.left = element;
+        element.parent = element.right;
     }
 
-    _rightRotate() {
+    _rightRotate(element) {
+        element.left = element.left.right;
+        if (element.left.right != undefined) {
+            element.left.right.parent = element;
+        }
+        element.left.parent = element.parent;
+        if (element = element.parent.left) {
+            element.parent.left = element.left;
+        }
+        else {
+            element.parent.right = element.left;
+        }
 
+        element.left.right = element;
+        element.parent = element.left;
     }
 
     push(value) {
