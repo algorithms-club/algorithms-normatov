@@ -28,6 +28,8 @@ describe('RedBlackTree', function () {
             rbt.getMax().should.eql(12);
             rbt.push(13);
             rbt.getMax().should.eql(13);
+            rbt.push(9);
+            rbt.getMin().should.eql(9);
         });
     });
 });
