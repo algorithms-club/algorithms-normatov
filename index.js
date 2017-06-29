@@ -18,6 +18,8 @@ let priorityQueue = require('./methods/priorityQueue/priorityQueue.js');
 let HashTable = require('./methods/hashTable/HashTable');
 let HashTableLL = require('./methods/hashTable/HashTableLL');
 let BinarySearchTree = require('./methods/binarySearchTree/BinarySearchTree');
+let TSP = require('./methods/TravellingSalesmanProblem/TSP');
+let Node = require('./methods/TravellingSalesmanProblem/Node');
 
 
 let algolib = {
@@ -38,7 +40,9 @@ let algolib = {
     priorityQueue,
     HashTable,
     HashTableLL,
-    BinarySearchTree
+    BinarySearchTree,
+    TSP,
+    Node
 }
 
 module.exports = algolib;
