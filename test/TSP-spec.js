@@ -3,7 +3,7 @@
 const algolib = require('../index.js');
 var assert = require('assert');
 
-describe.only('HashTable', function () {
+describe.only('TSP', function () {
 
     describe('#data structure', function () {
         it('#should create proper data structure', function () {
